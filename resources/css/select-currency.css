@@ -1,0 +1,425 @@
+/* =========================================================
+   Select Currency — dark mock
+   ========================================================= */
+
+body.dash-body--select-currency {
+    background: #000 !important;
+}
+
+body.dash-body--select-currency .dash-main,
+body.dash-body--select-currency .dash-content {
+    background: #000 !important;
+}
+
+body.dash-body--select-currency .dash-content,
+.dash-layout.select-currency-layout .dash-content {
+    padding: 0.55rem 0.75rem 5.5rem !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.oc-select-currency {
+    --ocscur-gold: #efff00;
+    --ocscur-green: #39ff14;
+    --ocscur-line: rgba(255, 255, 255, 0.14);
+    --ocscur-muted: rgba(255, 255, 255, 0.55);
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.ocscur-head {
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.ocscur-back {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.55rem;
+    border: 1.5px solid var(--ocscur-gold);
+    background: #0a0a0a;
+    color: var(--ocscur-gold);
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ocscur-back:hover {
+    background: rgba(239, 255, 0, 0.12);
+    color: #fff;
+}
+
+.ocscur-title {
+    margin: 0;
+    font-size: clamp(1rem, 3.4vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #fff;
+    text-align: center;
+}
+
+.ocscur-title em {
+    font-style: italic;
+    color: var(--ocscur-gold);
+    font-weight: 900;
+}
+
+.ocscur-brand {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.ocscur-brand strong {
+    color: #fff;
+}
+
+.ocscur-brand span {
+    color: var(--ocscur-green);
+}
+
+.ocscur-panel {
+    border: 1px solid var(--ocscur-line);
+    border-radius: 1.1rem;
+    background: #070707;
+    padding: 1rem 0.85rem 0.85rem;
+}
+
+.ocscur-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.95rem;
+    padding: 0 0.2rem;
+}
+
+.ocscur-panel-head h2 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #fff;
+}
+
+.ocscur-panel-head p {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--ocscur-muted);
+    max-width: 28rem;
+    line-height: 1.45;
+}
+
+.ocscur-brand--inline {
+    display: none;
+}
+
+@media (min-width: 560px) {
+    .ocscur-brand--inline {
+        display: inline;
+        margin-top: 0.15rem;
+    }
+
+    .ocscur-head .ocscur-brand {
+        visibility: hidden;
+    }
+}
+
+.ocscur-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    max-height: min(58vh, 520px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.15rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.ocscur-form {
+    margin: 0;
+}
+
+.ocscur-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) auto 18px;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.8rem 0.75rem;
+    border-radius: 0.9rem;
+    border: 1px solid var(--ocscur-line);
+    background: #0d0d0d;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ocscur-row:hover {
+    border-color: rgba(239, 255, 0, 0.45);
+    background: #111;
+}
+
+.ocscur-row.is-selected {
+    border-color: var(--ocscur-gold);
+    box-shadow: 0 0 0 1px rgba(239, 255, 0, 0.25);
+}
+
+.ocscur-row.is-selected .ocscur-chevron {
+    color: var(--ocscur-gold);
+}
+
+.ocscur-row.is-selected .ocscur-chevron::before {
+    content: "\f00c";
+}
+
+.ocscur-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ocscur-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ocscur-meta {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.45rem;
+}
+
+.ocscur-meta strong {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.ocscur-meta small {
+    width: 100%;
+    font-size: 0.72rem;
+    color: var(--ocscur-muted);
+}
+
+.ocscur-tag {
+    font-style: normal;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #fff;
+    background: #1f9d55;
+    border-radius: 0.3rem;
+    padding: 0.18rem 0.4rem;
+}
+
+.ocscur-bal {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ocscur-bal span {
+    font-size: 0.62rem;
+    color: var(--ocscur-muted);
+    text-transform: capitalize;
+}
+
+.ocscur-bal b {
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: var(--cur-accent, var(--ocscur-gold));
+    white-space: nowrap;
+}
+
+.ocscur-bal small {
+    font-size: 0.68rem;
+    color: var(--ocscur-muted);
+    white-space: nowrap;
+}
+
+.ocscur-chevron {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 420px) {
+    .ocscur-head {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .ocscur-head .ocscur-brand {
+        display: none;
+    }
+
+    .ocscur-row {
+        grid-template-columns: 40px minmax(0, 1fr) auto 14px;
+        gap: 0.45rem;
+        padding: 0.7rem 0.55rem;
+    }
+
+    .ocscur-bal b {
+        font-size: 0.78rem;
+    }
+}
+
+/* ---------- Currency picker popup (from header balance) ---------- */
+.ocscur-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2400;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.ocscur-modal[hidden] {
+    display: none !important;
+}
+
+.ocscur-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.72);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.ocscur-modal-dialog {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    width: min(100%, 520px);
+    max-height: min(88vh, 760px);
+    overflow: auto;
+    border-radius: 1.15rem 1.15rem 0.85rem 0.85rem;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.85rem 0.75rem 1rem;
+    box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.55);
+    animation: ocscur-rise 0.22s ease;
+}
+
+@keyframes ocscur-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ocscur-modal .oc-select-currency,
+.ocscur-modal .ocscur-panel {
+    max-width: none;
+}
+
+.ocscur-empty {
+    padding: 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+}
+
+body.ocscur-modal-open {
+    overflow: hidden;
+}
+
+@media (min-width: 720px) {
+    .ocscur-modal {
+        align-items: center;
+    }
+
+    .ocscur-modal-dialog {
+        border-radius: 1.15rem;
+        padding: 1rem 1rem 1.1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .ocscur-modal {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .ocscur-modal-dialog {
+        width: 100%;
+        max-width: none;
+        max-height: min(92vh, 820px);
+        border-radius: 1rem 1rem 0 0;
+        padding: 0.75rem 0.65rem calc(0.9rem + env(safe-area-inset-bottom));
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    .ocscur-panel {
+        border-radius: 0.9rem;
+        padding: 0.85rem 0.65rem 0.7rem;
+    }
+
+    .ocscur-panel-head p {
+        font-size: 0.72rem;
+        max-width: none;
+    }
+
+    .ocscur-row {
+        grid-template-columns: 40px minmax(0, 1fr) auto 14px;
+        gap: 0.45rem;
+        padding: 0.7rem 0.55rem;
+    }
+
+    .ocscur-bal b {
+        font-size: 0.78rem;
+    }
+
+    .ocscur-bal small {
+        font-size: 0.62rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .ocscur-meta small {
+        display: none;
+    }
+
+    .ocscur-title {
+        font-size: 0.95rem;
+    }
+
+    .ocscur-row {
+        padding: 0.62rem 0.45rem;
+    }
+}

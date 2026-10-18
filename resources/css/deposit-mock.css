@@ -1,0 +1,635 @@
+/* Deposit — mockup UI */
+.dash-body--deposit {
+    --ocdep-gold: #ffd700;
+    --ocdep-gold-btn: #f5e000;
+    --ocdep-muted: #94a3b8;
+}
+
+.dash-body--deposit .dash-topbar-titles {
+    display: none;
+}
+
+.dash-body--deposit .dash-content {
+    max-width: none;
+    width: 100%;
+    padding-bottom: 5.5rem;
+}
+
+.oc-deposit {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ocdep-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.ocdep-back {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: var(--ocdep-gold);
+    text-decoration: none;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    background: #0c0c0c;
+    flex-shrink: 0;
+}
+
+.ocdep-head-copy h1 {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.ocdep-head-copy p {
+    margin: 0.25rem 0 0;
+    color: var(--ocdep-muted);
+    font-size: 0.86rem;
+}
+
+.ocdep-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.ocdep-method {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.95rem 0.85rem;
+    border-radius: 0.95rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: #0a0a0a;
+    color: inherit;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ocdep-method.is-active {
+    border-color: var(--ocdep-gold);
+    box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.25), 0 0 24px rgba(255, 215, 0, 0.12);
+}
+
+.ocdep-method-icons {
+    display: flex;
+    align-items: center;
+}
+
+.ocdep-method-icons img {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 2px solid #0a0a0a;
+    margin-left: -8px;
+    background: #111;
+}
+
+.ocdep-method-icons img:first-child {
+    margin-left: 0;
+}
+
+.ocdep-method-icons--single img {
+    margin-left: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.ocdep-method-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+    padding-right: 1.1rem;
+}
+
+.ocdep-method-copy strong {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+}
+
+.ocdep-method-copy small {
+    color: var(--ocdep-muted);
+    font-size: 0.68rem;
+    line-height: 1.35;
+}
+
+.ocdep-panel {
+    display: none;
+}
+
+.ocdep-panel.is-visible {
+    display: block;
+}
+
+.ocdep-check,
+.ocdep-radio {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    font-size: 0.95rem;
+}
+
+.ocdep-check {
+    color: var(--ocdep-gold);
+}
+
+.ocdep-radio {
+    color: #64748b;
+}
+
+.ocdep-section-title {
+    margin: 0 0 0.85rem;
+    color: var(--ocdep-gold);
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.ocdep-paused {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.85rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    background: rgba(127, 29, 29, 0.25);
+    color: #fecaca;
+    font-size: 0.82rem;
+}
+
+.ocdep-paused strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.ocdep-paused p {
+    margin: 0;
+}
+
+.ocdep-form.is-disabled {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.ocdep-label {
+    display: block;
+    margin: 0 0 0.4rem;
+    color: var(--ocdep-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.ocdep-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.ocdep-select-ico {
+    position: absolute;
+    left: 0.85rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ocdep-select {
+    width: 100%;
+    appearance: none;
+    padding: 0.85rem 2.4rem 0.85rem 2.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #080808;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.ocdep-select-wrap > .fa-chevron-down {
+    position: absolute;
+    right: 0.95rem;
+    color: var(--ocdep-muted);
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.ocdep-hint {
+    margin: -0.45rem 0 0.85rem;
+    color: #64748b;
+    font-size: 0.72rem;
+}
+
+.ocdep-amount {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.45rem 0.35rem 0.85rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #080808;
+}
+
+.ocdep-amount input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    outline: none;
+}
+
+.ocdep-amount-side {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--ocdep-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.ocdep-amount-side img {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+}
+
+.ocdep-usd-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: #efff00;
+    color: #111;
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+.ocdep-rate {
+    margin: -0.55rem 0 0.85rem;
+    color: #94a3b8;
+    font-size: 0.72rem;
+}
+
+.ocdep-max {
+    border: 1px solid var(--ocdep-gold);
+    background: transparent;
+    color: var(--ocdep-gold);
+    border-radius: 0.4rem;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.ocdep-receive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.55rem 0 0.85rem;
+    color: var(--ocdep-muted);
+    font-size: 0.8rem;
+}
+
+.ocdep-receive strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.ocdep-receive em {
+    font-style: normal;
+}
+
+.ocdep-quick {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-bottom: 0.9rem;
+}
+
+.ocdep-chip {
+    padding: 0.55rem 0.2rem;
+    border-radius: 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0a0a0a;
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.ocdep-chip.is-active,
+.ocdep-chip:hover:not(:disabled) {
+    border-color: var(--ocdep-gold);
+    color: var(--ocdep-gold);
+}
+
+.ocdep-chip:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.ocdep-warn {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    padding: 0.85rem 0.95rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    background: rgba(255, 215, 0, 0.06);
+}
+
+.ocdep-warn > i {
+    color: var(--ocdep-gold);
+    margin-top: 0.1rem;
+}
+
+.ocdep-warn p {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.ocdep-warn em {
+    font-style: normal;
+    font-weight: 800;
+    color: var(--ocdep-gold);
+}
+
+.ocdep-cta {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.95rem 1.1rem;
+    border: 0;
+    border-radius: 0.8rem;
+    background: var(--ocdep-gold-btn);
+    color: #000;
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(255, 215, 0, 0.28);
+}
+
+.ocdep-cta:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.ocdep-error {
+    display: block;
+    margin: -0.45rem 0 0.75rem;
+    color: #f87171;
+    font-size: 0.78rem;
+}
+
+.ocdep-secure {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 0.85rem;
+    align-items: center;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    background:
+        radial-gradient(ellipse at 85% 50%, rgba(255, 215, 0, 0.1), transparent 55%),
+        #0a0a0a;
+}
+
+.ocdep-secure-copy {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.ocdep-secure-ico {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 215, 0, 0.12);
+    color: var(--ocdep-gold);
+    flex-shrink: 0;
+}
+
+.ocdep-secure-copy strong {
+    display: block;
+    color: var(--ocdep-gold);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.ocdep-secure-copy p {
+    margin: 0;
+    color: var(--ocdep-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.ocdep-secure-art {
+    display: flex;
+    justify-content: center;
+}
+
+.ocdep-secure-art img {
+    width: min(100%, 180px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+.ocdep-fee {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0a0a0a;
+}
+
+.ocdep-fee-copy {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.ocdep-fee-copy > i {
+    color: var(--ocdep-gold);
+    margin-top: 0.15rem;
+}
+
+.ocdep-fee-copy p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.ocdep-fee-copy em {
+    font-style: normal;
+    font-weight: 900;
+    color: var(--ocdep-gold);
+}
+
+.ocdep-fee-flow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--ocdep-muted);
+    flex-shrink: 0;
+}
+
+.ocdep-fee-flow img {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+}
+
+.ocdep-logo-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(57, 255, 20, 0.15);
+    color: #39ff14;
+    font-size: 0.75rem;
+}
+
+.ocdep-history {
+    margin-top: 0.35rem;
+}
+
+.ocdep-history-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.ocdep-history-head h2 {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.ocdep-history-head a {
+    color: var(--ocdep-gold);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.ocdep-history-empty {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    color: var(--ocdep-muted);
+}
+
+.ocdep-history-empty img {
+    width: 72px;
+    height: auto;
+}
+
+.ocdep-history-empty strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.ocdep-history-empty p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.ocdep-history-table {
+    border-radius: 0.85rem;
+    overflow: hidden;
+}
+
+@media (max-width: 720px) {
+    .ocdep-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .ocdep-quick {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ocdep-secure {
+        grid-template-columns: 1fr;
+    }
+
+    .ocdep-secure-art {
+        order: -1;
+    }
+
+    .ocdep-fee {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .ocdep-quick {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Dark deposit history table cards on mobile */
+.dash-body--deposit .ocdep-history-table .dash-table tbody tr {
+    background: #0d0d0d;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+}
+
+.dash-body--deposit .ocdep-history-table .dash-table tbody td {
+    color: #e2e8f0;
+}
+
+.dash-body--deposit .ocdep-history-table .dash-table tbody td::before {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (min-width: 1024px) {
+    .dash-body--deposit .dash-content {
+        padding-bottom: 6.25rem;
+    }
+}

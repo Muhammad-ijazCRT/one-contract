@@ -1,0 +1,1097 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ONE CONTRACT™ REWARDS - HIGH-FIDELITY MOBILE UI (390x844px & Responsive)
+   Pixel-Matched to Reference Image (Using User Uploaded Assets)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --rw-neon-green: #39ff14;
+    --rw-neon-lime: #a3e635;
+    --rw-btn-lime: #b6f328;
+    --rw-gold: #f5c518;
+    --rw-gold-glow: rgba(245, 197, 24, 0.4);
+    --rw-bg-dark: #000000;
+    --rw-card-bg: #090e07;
+    --rw-card-border: rgba(57, 255, 20, 0.22);
+    --rw-card-glow: rgba(57, 255, 20, 0.3);
+    --rw-muted-text: #8b998a;
+    --rw-body-text: #c0ccc0;
+}
+
+/* Outer layout adjustments */
+.dash-body--rewards-v2 {
+    background-color: #000000 !important;
+    color: #ffffff;
+}
+
+/* Mobile: hide default dashboard topbar & header to render mobile rewards screen */
+@media (max-width: 1099px) {
+    .dash-body--rewards-v2 .dash-topbar,
+    .dash-body--rewards-v2 .dash-topbar-titles,
+    .dash-body--rewards-v2 .oc-page-head {
+        display: none !important;
+    }
+
+    .dash-body--rewards-v2 .dash-content {
+        padding: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+/* Screen Wrapper & Mobile Container */
+.rw-screen-wrapper {
+    width: 100%;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+}
+
+/* Main Container: Mobile (Default 390px-440px) */
+.rw-mobile-container {
+    width: 100%;
+    max-width: 440px;
+    background: #000000;
+    position: relative;
+    padding: 10px 14px 85px 14px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   1. HERO STAGE & INTEGRATED NAVBAR
+   ─────────────────────────────────────────────────────────────────── */
+.rw-hero-stage {
+    position: relative;
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.15);
+}
+
+.rw-hero-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Top Navbar inside Hero Stage */
+.rw-hero-navbar-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.rw-hero-brand-link {
+    width: 55%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.rw-hero-actions-cluster {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rw-hero-icon-pill {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(14, 18, 14, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e5e7eb;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rw-hero-icon-pill svg {
+    width: 17px;
+    height: 17px;
+    color: #f3f4f6;
+}
+
+.rw-hero-icon-pill:hover {
+    background: rgba(57, 255, 20, 0.2);
+    border-color: rgba(57, 255, 20, 0.6);
+    color: #39ff14;
+    transform: translateY(-1px);
+}
+
+.rw-bell-badge-dot {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 1.5px solid #000000;
+    box-shadow: 0 0 6px #ef4444;
+}
+
+/* Typography Overlay on Left Side of Hero */
+.rw-hero-overlay-copy {
+    position: absolute;
+    left: clamp(10px, 3.2vw, 18px);
+    top: clamp(28%, 32%, 36%);
+    bottom: 6%;
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(1px, 0.6vw, 3px);
+    z-index: 5;
+    line-height: normal;
+}
+
+.rw-hero-heading {
+    font-size: clamp(1.3rem, 5.2vw, 2.1rem);
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin: 0;
+}
+
+.rw-heading-white {
+    color: #ffffff;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+.rw-heading-accent {
+    background: linear-gradient(135deg, #d4ff32 0%, #39ff14 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px rgba(57, 255, 20, 0.7));
+}
+
+.rw-hero-tagline {
+    font-size: clamp(0.72rem, 2.6vw, 0.95rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 3px 0 1px 0;
+    letter-spacing: 0.01em;
+}
+
+.rw-hero-subtext {
+    font-size: clamp(0.55rem, 1.9vw, 0.72rem);
+    line-height: 1.32;
+    color: var(--rw-body-text);
+    margin: 0;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   3. TAB BAR NAVIGATION (Pill Container)
+   ─────────────────────────────────────────────────────────────────── */
+.rw-tab-bar {
+    width: 100%;
+    height: 44px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+}
+
+.rw-tab-btn {
+    flex: 1;
+    height: 100%;
+    border: none;
+    background: transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #9ca3af;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.rw-tab-btn.is-active {
+    background: var(--rw-neon-lime);
+    color: #000000;
+    font-weight: 800;
+    box-shadow: 0 0 14px rgba(163, 230, 53, 0.4);
+}
+
+.rw-tab-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+/* Tab Panels */
+.rw-tab-panel {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rw-tab-panel.is-active {
+    display: flex;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   4. TOTAL AVAILABLE REWARDS CARD
+   ─────────────────────────────────────────────────────────────────── */
+.rw-total-card {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #070e04 0%, #030602 100%);
+    border: 1.5px solid #2df511;
+    border-radius: 15px;
+    padding: 15px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(45, 245, 17, 0.22), inset 0 0 15px rgba(45, 245, 17, 0.08);
+    overflow: hidden;
+}
+
+.rw-total-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(45, 245, 17, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.rw-total-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 2;
+}
+
+.rw-total-header-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rw-total-label {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: #a3b3a2;
+    letter-spacing: 0.01em;
+}
+
+.rw-info-icon {
+    display: flex;
+    align-items: center;
+    color: #6b7d6a;
+}
+
+.rw-info-icon svg {
+    width: 13px;
+    height: 13px;
+}
+
+.rw-total-val-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin: 3px 0 2px 0;
+}
+
+.rw-currency-symbol {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+.rw-val-integer {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.rw-val-decimal {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #38ff14;
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 16px rgba(56, 255, 20, 0.6);
+}
+
+.rw-total-footnote {
+    font-size: 0.71rem;
+    color: #7a8c79;
+    margin: 0;
+    font-weight: 500;
+}
+
+.rw-total-action-col {
+    z-index: 2;
+}
+
+.rw-claim-all-cta {
+    background: var(--rw-btn-lime);
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 16px rgba(182, 243, 40, 0.45);
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.rw-claim-all-cta:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+}
+
+.rw-cta-arrow {
+    width: 16px;
+    height: 16px;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   5. REWARD CATEGORIES (Using User's Card Background Images)
+   ─────────────────────────────────────────────────────────────────── */
+.rw-categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rw-categories-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 2px;
+}
+
+.rw-categories-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.rw-categories-subtitle {
+    font-size: 0.74rem;
+    color: var(--rw-muted-text);
+    margin: 0;
+    font-weight: 400;
+}
+
+.rw-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+/* Full Background Image Card */
+.rw-full-bg-card {
+    position: relative;
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.rw-hero-picture,
+.rw-card-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+}
+
+.rw-card-backdrop-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Overlaid Content Layer inside the Card */
+.rw-card-content-layer {
+    position: absolute;
+    inset: 0;
+    padding: clamp(6px, 2.5vw, 14px) clamp(8px, 3vw, 16px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2.4vw, 16px);
+    z-index: 2;
+    line-height: normal;
+}
+
+/* Icon Frame */
+.rw-cat-icon-frame {
+    width: clamp(34px, 10vw, 48px);
+    height: clamp(34px, 10vw, 48px);
+    border-radius: clamp(8px, 2.4vw, 12px);
+    background: #030503;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 3;
+}
+
+.rw-icon-frame--green {
+    border: 1.5px solid #39ff14;
+    color: #39ff14;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.35);
+}
+
+.rw-icon-frame--green svg {
+    width: clamp(18px, 5.5vw, 24px);
+    height: clamp(18px, 5.5vw, 24px);
+}
+
+.rw-icon-frame--gold {
+    border: 1.5px solid var(--rw-gold);
+    color: var(--rw-gold);
+    box-shadow: 0 0 10px rgba(245, 197, 24, 0.35);
+}
+
+.rw-icon-frame--gold svg {
+    width: clamp(17px, 5vw, 22px);
+    height: clamp(17px, 5vw, 22px);
+}
+
+/* Card Text Block - Fluid typography with CSS clamp() */
+.rw-cat-text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(1px, 0.5vw, 4px);
+    z-index: 3;
+    min-width: 0;
+    max-width: 60%;
+}
+
+.rw-cat-name {
+    font-size: clamp(0.72rem, 2.5vw, 0.95rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rw-cat-desc {
+    font-size: clamp(0.55rem, 1.85vw, 0.72rem);
+    line-height: 1.25;
+    color: #92a290;
+    margin: 0;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Right Chevron Action */
+.rw-cat-chevron-col {
+    z-index: 4;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.rw-chevron-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(18, 22, 17, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.rw-chevron-circle svg {
+    width: 15px;
+    height: 15px;
+}
+
+.rw-chevron-circle:hover {
+    background: rgba(57, 255, 20, 0.25);
+    border-color: rgba(57, 255, 20, 0.6);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   6. MY REWARDS & HISTORY PANELS
+   ─────────────────────────────────────────────────────────────────── */
+.rw-breakdown-box,
+.rw-history-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.rw-breakdown-row {
+    background: #0c120a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rw-breakdown-info {
+    flex: 1;
+}
+
+.rw-breakdown-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+}
+
+.rw-breakdown-sub {
+    font-size: 0.68rem;
+    color: #8b998a;
+}
+
+.rw-breakdown-amt {
+    text-align: right;
+}
+
+.rw-amt-val {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--rw-neon-green);
+    display: block;
+}
+
+.rw-amt-curr {
+    font-size: 0.68rem;
+    color: #8b998a;
+}
+
+.rw-breakdown-claim-btn {
+    background: transparent;
+    border: 1.5px solid var(--rw-neon-green);
+    color: var(--rw-neon-green);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.74rem;
+    cursor: pointer;
+}
+
+.rw-history-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rw-history-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+}
+
+.rw-history-link {
+    font-size: 0.75rem;
+    color: var(--rw-neon-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.rw-history-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rw-history-item {
+    background: #0d120c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rw-history-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(57, 255, 20, 0.12);
+    color: var(--rw-neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.rw-history-meta {
+    flex: 1;
+}
+
+.rw-history-meta strong {
+    font-size: 0.85rem;
+    color: #ffffff;
+    display: block;
+}
+
+.rw-history-meta time {
+    font-size: 0.68rem;
+    color: #8b998a;
+}
+
+.rw-status-pill {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.rw-status-pill.is-complete {
+    background: rgba(57, 255, 20, 0.18);
+    color: var(--rw-neon-green);
+}
+
+.rw-status-pill.is-pending {
+    background: rgba(245, 197, 24, 0.18);
+    color: var(--rw-gold);
+}
+
+.rw-empty-notice {
+    text-align: center;
+    color: #8b998a;
+    font-size: 0.78rem;
+    padding: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   7. DESKTOP & TABLET LAYOUT (Exact match to Reference Screenshot)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Tablet (768px - 1099px) */
+@media (min-width: 768px) and (max-width: 1099px) {
+    .rw-screen-wrapper {
+        padding: 20px 24px 60px 24px;
+        background: radial-gradient(circle at 50% 10%, rgba(57, 255, 20, 0.05) 0%, #000000 70%);
+    }
+
+    .rw-mobile-container {
+        max-width: 720px;
+        padding: 0 0 40px 0;
+        gap: 18px;
+    }
+
+    .rw-hero-navbar-bar {
+        height: 64px;
+        padding: 16px 24px;
+    }
+
+    .rw-hero-icon-pill {
+        width: 42px;
+        height: 42px;
+    }
+
+    .rw-hero-icon-pill svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rw-hero-overlay-copy {
+        left: 28px;
+        top: 32%;
+        bottom: 8%;
+        width: 52%;
+        gap: 4px;
+    }
+
+    .rw-hero-heading {
+        font-size: 2.5rem;
+    }
+
+    .rw-hero-tagline {
+        font-size: 1.15rem;
+        margin: 6px 0 4px 0;
+    }
+
+    .rw-hero-subtext {
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
+    .rw-tab-bar {
+        height: 50px;
+        border-radius: 14px;
+        padding: 4px;
+    }
+
+    .rw-tab-btn {
+        font-size: 0.95rem;
+    }
+
+    .rw-total-card {
+        padding: 22px 26px;
+        border-radius: 18px;
+    }
+
+    .rw-total-label {
+        font-size: 0.92rem;
+    }
+
+    .rw-currency-symbol {
+        font-size: 2rem;
+    }
+
+    .rw-val-integer,
+    .rw-val-decimal {
+        font-size: 2.4rem;
+    }
+
+    .rw-total-footnote {
+        font-size: 0.82rem;
+    }
+
+    .rw-claim-all-cta {
+        padding: 14px 24px;
+        font-size: 0.98rem;
+        border-radius: 14px;
+    }
+
+    .rw-categories-title {
+        font-size: 1.25rem;
+    }
+
+    .rw-categories-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .rw-full-bg-card {
+        border-radius: 16px;
+    }
+
+    .rw-card-content-layer {
+        padding: 16px 24px;
+        gap: 18px;
+    }
+
+    .rw-cat-icon-frame {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+    }
+
+    .rw-cat-icon-frame svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .rw-cat-name {
+        font-size: 1.05rem;
+    }
+
+    .rw-cat-desc {
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    .rw-chevron-circle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .rw-chevron-circle svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* =========================================================
+   DESKTOP (>= 1100px) — Pixel-matched to Desktop Screenshot:
+   - Sidebar visible on left (Rewards active in gold)
+   - Topbar visible on top (Logo, Search, Notification, Profile)
+   - Content area: Wide Hero Banner, Tab Bar, Total Available Card,
+     and 3-column Grid for Reward Categories!
+   ========================================================= */
+@media (min-width: 1100px) {
+    .dash-body--rewards-v2 .dash-content {
+        padding: 1.15rem 1.75rem 2.5rem 1.75rem !important;
+        background: #000000 !important;
+    }
+
+    .dash-body--rewards-v2 .rw-screen-wrapper {
+        padding: 0;
+        background: transparent;
+        display: block;
+        width: 100%;
+        max-width: 1480px;
+        margin: 0 auto;
+    }
+
+    .dash-body--rewards-v2 .rw-mobile-container {
+        max-width: 100%;
+        padding: 0;
+        gap: 1.15rem;
+        background: transparent;
+    }
+
+    /* In desktop, the topbar is above the content, so hide the mobile duplicate overlay in hero */
+    .rw-hero-navbar-bar {
+        display: none !important;
+    }
+
+    /* Wide Desktop Hero Banner */
+    .rw-hero-stage {
+        border-radius: 1.25rem;
+        max-height: 360px;
+        overflow: hidden;
+        border: 1px solid rgba(57, 255, 20, 0.2);
+        box-shadow: 0 0 35px rgba(57, 255, 20, 0.12);
+    }
+
+    .rw-hero-bg-img {
+        width: 100%;
+        height: 100%;
+        max-height: 360px;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .rw-hero-overlay-copy {
+        left: 2.5rem;
+        top: 20%;
+        bottom: 12%;
+        width: 50%;
+        gap: 0.35rem;
+    }
+
+    .rw-hero-heading {
+        font-size: 3.2rem;
+        letter-spacing: 0.02em;
+    }
+
+    .rw-hero-tagline {
+        font-size: 1.4rem;
+        margin: 4px 0 2px 0;
+    }
+
+    .rw-hero-subtext {
+        font-size: 1rem;
+        line-height: 1.45;
+        max-width: 40ch;
+    }
+
+    /* Tab Bar Desktop */
+    .rw-tab-bar {
+        height: 52px;
+        max-width: 100%;
+        border-radius: 14px;
+        background: #0d0d0d;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 4px;
+    }
+
+    .rw-tab-btn {
+        font-size: 0.98rem;
+        border-radius: 11px;
+    }
+
+    .rw-tab-btn.is-active {
+        box-shadow: 0 0 16px rgba(163, 230, 53, 0.45);
+    }
+
+    /* Total Available Rewards Card Desktop */
+    .rw-total-card {
+        padding: 1.5rem 2rem;
+        border-radius: 1.25rem;
+        border: 1.5px solid #2df511;
+        box-shadow: 0 0 25px rgba(45, 245, 17, 0.25), inset 0 0 20px rgba(45, 245, 17, 0.08);
+    }
+
+    .rw-total-label {
+        font-size: 0.95rem;
+    }
+
+    .rw-info-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .rw-currency-symbol {
+        font-size: 2.1rem;
+    }
+
+    .rw-val-integer {
+        font-size: 2.6rem;
+    }
+
+    .rw-val-decimal {
+        font-size: 2.6rem;
+    }
+
+    .rw-total-footnote {
+        font-size: 0.85rem;
+    }
+
+    .rw-claim-all-cta {
+        padding: 14px 28px;
+        font-size: 1.05rem;
+        border-radius: 14px;
+        gap: 10px;
+    }
+
+    .rw-cta-arrow {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Reward Categories Desktop: 3 Columns Grid Side-by-Side */
+    .rw-categories-head {
+        margin-top: 0.35rem;
+    }
+
+    .rw-categories-title {
+        font-size: 1.35rem;
+    }
+
+    .rw-categories-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .rw-cards-stack {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.15rem;
+        margin-top: 0.6rem;
+    }
+
+    .rw-full-bg-card {
+        border-radius: 1.15rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        min-height: 160px;
+        display: flex;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .rw-full-bg-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .rw-full-card--gameplay {
+        border-color: rgba(57, 255, 20, 0.35);
+        box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
+    }
+
+    .rw-full-card--tournaments {
+        border-color: rgba(245, 197, 24, 0.35);
+        box-shadow: 0 0 20px rgba(245, 197, 24, 0.15);
+    }
+
+    .rw-full-card--referral {
+        border-color: rgba(245, 197, 24, 0.35);
+        box-shadow: 0 0 20px rgba(245, 197, 24, 0.15);
+    }
+
+    .rw-card-backdrop-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .rw-card-content-layer {
+        padding: 1.1rem 1.25rem;
+        gap: 0.9rem;
+    }
+
+    .rw-cat-icon-frame {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        flex-shrink: 0;
+    }
+
+    .rw-cat-icon-frame svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .rw-cat-text-block {
+        max-width: 62%;
+        gap: 0.25rem;
+    }
+
+    .rw-cat-name {
+        font-size: 0.98rem;
+        line-height: 1.2;
+    }
+
+    .rw-cat-desc {
+        font-size: 0.74rem;
+        line-height: 1.35;
+    }
+
+    .rw-chevron-circle {
+        width: 38px;
+        height: 38px;
+        background: rgba(10, 12, 10, 0.9);
+    }
+
+    .rw-chevron-circle svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+

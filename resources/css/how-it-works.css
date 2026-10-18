@@ -1,0 +1,803 @@
+/* ── How It Works Page ── */
+
+.hiw-page {
+    padding-top: 72px;
+}
+
+/* Hero */
+.hiw-hero {
+    position: relative;
+    padding-block: 3rem 2.5rem;
+    overflow: hidden;
+}
+
+.hiw-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 55% 50% at 70% 40%, rgba(255, 193, 7, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 40% at 20% 60%, rgba(38, 161, 123, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0e14 0%, #0d1520 100%);
+    pointer-events: none;
+}
+
+.hiw-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hiw-hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.65rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+}
+
+.hiw-hero-desc {
+    color: var(--color-muted);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+.hiw-hero-visual {
+    display: flex;
+    justify-content: center;
+    order: -1; /* mobile: image first, then text (same as Features) */
+}
+
+.hiw-hero-image {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Content block */
+.hiw-light {
+    background: #0a0e14;
+    color: #94a3b8;
+}
+
+/* Steps — flat grid + solid icon circles (reference) */
+.hiw-steps {
+    padding-block: 0;
+}
+
+.hiw-steps-container {
+    max-width: 1260px;
+}
+
+.hiw-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+}
+
+.hiw-steps-grid + .hiw-steps-grid {
+    margin-top: 0.85rem;
+}
+
+.hiw-step-card {
+    position: relative;
+    background: #121a24;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.95rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    padding: 1rem 1rem 1.1rem;
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto auto auto;
+    gap: 0.6rem 0.8rem;
+    align-items: start;
+    align-content: start;
+    text-align: left;
+    min-height: 280px;
+}
+
+.hiw-step-card:hover {
+    background: #151b24;
+}
+
+.hiw-step-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    width: 100%;
+    margin-top: 0.1rem;
+    padding-inline: 0;
+    grid-column: 1 / -1;
+}
+
+.hiw-step-num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin-top: 0.05rem;
+}
+
+.hiw-step-num.blue,
+.hiw-step-icon.blue,
+.hiw-head-icon.blue,
+.hiw-why-icon.blue,
+.hiw-info-icon.blue {
+    background: linear-gradient(145deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+}
+
+.hiw-step-num.purple,
+.hiw-step-icon.purple,
+.hiw-why-icon.purple,
+.hiw-info-icon.purple {
+    background: linear-gradient(145deg, #8b5cf6 0%, #6d28d9 100%);
+    box-shadow: 0 2px 6px rgba(109, 40, 217, 0.35);
+}
+
+.hiw-step-num.green,
+.hiw-step-icon.green,
+.hiw-why-icon.green,
+.hiw-info-icon.green {
+    background: linear-gradient(145deg, #34d399 0%, #059669 100%);
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+}
+
+.hiw-step-num.orange,
+.hiw-step-icon.orange,
+.hiw-why-icon.orange,
+.hiw-info-icon.orange {
+    background: linear-gradient(145deg, #fb923c 0%, #ea580c 100%);
+    box-shadow: 0 2px 6px rgba(234, 88, 12, 0.35);
+}
+
+.hiw-step-num.teal,
+.hiw-step-icon.teal {
+    background: linear-gradient(145deg, #2dd4bf 0%, #0f766e 100%);
+    box-shadow: 0 2px 6px rgba(15, 118, 110, 0.35);
+}
+
+.hiw-step-head h2 {
+    font-size: 0.84rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+    text-align: left;
+    flex: 1;
+    max-width: calc(100% - 30px);
+}
+
+.hiw-step-icon-wrap {
+    position: relative;
+    display: inline-flex;
+    margin-top: 0.2rem;
+    grid-column: 1;
+    justify-self: center;
+}
+
+.hiw-step-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
+}
+
+.hiw-step-icon svg,
+.hiw-step-icon i {
+    width: 27px;
+    height: 27px;
+    font-size: 27px;
+}
+
+.hiw-step-badge {
+    position: absolute;
+    right: -4px;
+    bottom: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #121a24;
+    font-size: 0.62rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.hiw-step-badge.green {
+    background: linear-gradient(145deg, #34d399 0%, #059669 100%);
+}
+
+.hiw-step-badge.teal {
+    background: linear-gradient(145deg, #2dd4bf 0%, #0f766e 100%);
+    font-size: 0.72rem;
+}
+
+.hiw-step-card > p {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    font-weight: normal;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    grid-column: 2;
+}
+
+.hiw-step-copy {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    font-weight: normal;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+.hiw-copy-primary {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.hiw-copy-secondary {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.hiw-copy-tertiary {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.hiw-copy-label {
+    grid-column: 2;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.hiw-step-card--account .hiw-copy-secondary {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0.7rem;
+}
+
+.hiw-step-card--deposit .hiw-copy-secondary {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: start;
+    max-width: 72%;
+    margin-top: 1rem;
+}
+
+.hiw-step-card--earn .hiw-copy-secondary {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0.45rem;
+}
+
+.hiw-step-card--track .hiw-copy-label {
+    grid-row: 3;
+    margin-top: -0.18rem;
+    text-align: center;
+}
+
+.hiw-step-card--invite .hiw-copy-secondary {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-self: center;
+    width: fit-content;
+    max-width: 220px;
+    margin-top: 0.85rem;
+    text-align: left;
+}
+
+.hiw-step-card--withdraw .hiw-copy-secondary {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-self: start;
+    max-width: 78%;
+    margin-top: 0.35rem;
+}
+
+.hiw-step-card--withdraw .hiw-copy-tertiary {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    justify-self: start;
+    max-width: 78%;
+}
+
+.hiw-step-card--capital .hiw-copy-secondary {
+    grid-row: 3;
+    margin-top: 0.15rem;
+}
+
+.hiw-step-card--capital .hiw-copy-tertiary {
+    grid-row: 4;
+    margin-top: 0.15rem;
+}
+
+.hiw-step-card--capital .hiw-copy-label {
+    grid-row: 5;
+    margin-top: 0.05rem;
+}
+
+.hiw-step-card--invite .hiw-referral,
+.hiw-step-card--invite .hiw-referral strong,
+.hiw-step-card--invite .hiw-referral li,
+.hiw-step-card--invite .hiw-referral p,
+.hiw-step-card--withdraw .hiw-copy-secondary,
+.hiw-step-card--withdraw .hiw-copy-tertiary {
+    text-align: left;
+}
+
+.hiw-step-card--invite .hiw-referral {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    justify-self: center !important;
+    align-self: start;
+    width: fit-content;
+    min-width: 0;
+    max-width: 180px;
+    margin: 0.2rem 0 0 0;
+    position: static;
+}
+
+.hiw-step-card--invite .hiw-referral strong {
+    margin-bottom: 0.3rem;
+}
+
+.hiw-step-card--invite .hiw-referral li {
+    font-size: 0.62rem;
+    line-height: 1.2;
+}
+
+.hiw-step-card--invite .hiw-referral li::before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 0.95rem;
+    margin-right: 0.45rem;
+    vertical-align: middle;
+    border-radius: 999px;
+}
+
+.hiw-step-card--invite .hiw-referral li:nth-child(1)::before {
+    background: #f59e0b;
+}
+
+.hiw-step-card--invite .hiw-referral li:nth-child(2)::before {
+    background: #3b82f6;
+}
+
+.hiw-step-card--invite .hiw-referral li:nth-child(3)::before {
+    background: #22c55e;
+}
+
+.hiw-step-card--invite .hiw-referral li span {
+    margin-left: 0.2rem;
+}
+
+.hiw-example {
+    margin-top: 0.2rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.6rem;
+    font-size: 0.64rem;
+    grid-column: 2;
+}
+
+.hiw-step-card--earn .hiw-example {
+    grid-row: 3 / span 2;
+}
+
+.hiw-example--purple {
+    background: rgba(124, 58, 237, 0.12);
+    border: 1px solid rgba(124, 58, 237, 0.28);
+}
+
+.hiw-example strong {
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 800;
+    color: #a78bfa;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.hiw-example p {
+    margin: 0;
+    color: #94a3b8;
+    font-weight: 600;
+    line-height: 1.38;
+}
+
+.hiw-example p span {
+    color: #a78bfa;
+    font-weight: 700;
+}
+
+.hiw-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0.05rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+    text-align: left;
+    grid-column: 2;
+}
+
+.hiw-step-card--track .hiw-checklist {
+    grid-row: 4;
+}
+
+.hiw-step-card--withdraw .hiw-checklist {
+    grid-row: 3;
+}
+
+.hiw-step-card--capital .hiw-checklist {
+    grid-row: 6;
+}
+
+.hiw-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.66rem;
+    color: #94a3b8;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.hiw-check {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 0.5rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.05rem;
+}
+
+.hiw-check.green {
+    background: linear-gradient(145deg, #34d399 0%, #059669 100%);
+}
+
+.hiw-referral {
+    margin-top: 0.35rem;
+    padding: 0.7rem 0.8rem;
+    background: rgba(234, 88, 12, 0.12);
+    border: 1px solid rgba(234, 88, 12, 0.28);
+    border-radius: 0.65rem;
+    grid-column: 2;
+}
+
+.hiw-referral strong {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: #fb923c;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.hiw-referral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.hiw-referral li {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    font-weight: normal;
+}
+
+.hiw-referral li span {
+    color: #fb923c;
+    font-weight: 700;
+}
+
+.hiw-referral p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.6;
+    margin: 0.55rem 0 0;
+}
+
+/* Why Choose */
+.hiw-why {
+    padding-block: 2rem 2.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0a0e14;
+}
+
+.hiw-section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1.75rem;
+}
+
+.hiw-section-head h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.hiw-head-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.hiw-head-icon svg,
+.hiw-head-icon i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.hiw-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.35rem 0.85rem;
+}
+
+.hiw-why-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.55rem;
+}
+
+.hiw-why-item span {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: #ffffff;
+    line-height: 1.45;
+    max-width: 10rem;
+}
+
+.hiw-why-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.hiw-why-icon svg,
+.hiw-why-icon i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* Important Info */
+.hiw-info {
+    padding-block: 1.15rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0a0e14;
+}
+
+.hiw-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem 2.5rem;
+    align-items: start;
+}
+
+.hiw-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.hiw-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.hiw-info-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.hiw-info-icon svg,
+.hiw-info-icon i {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+.hiw-info-icon span {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.hiw-info-item h3 {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 480px) {
+    .hiw-why-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 640px) {
+    .hiw-hero {
+        padding-block: 4rem 3rem;
+    }
+
+    .hiw-steps-grid--4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hiw-steps-grid--3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hiw-steps-grid--3 .hiw-step-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    .hiw-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hiw-info-grid {
+        column-gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hiw-info-grid {
+        gap: 1.25rem 2.75rem;
+    }
+
+    .hiw-info-item h3 {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 768px) {
+    .hiw-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .hiw-hero-visual {
+        order: 0;
+    }
+
+    .hiw-steps-grid--4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hiw-steps-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hiw-steps-grid--3 .hiw-step-card:last-child {
+        grid-column: auto;
+        max-width: none;
+        margin-inline: 0;
+    }
+
+    .hiw-why-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem 0.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hiw-hero {
+        padding-block: 5rem 3.5rem;
+    }
+
+    .hiw-step-card {
+        padding: 1.05rem 0.95rem 1.15rem;
+        grid-template-columns: minmax(72px, 0.85fr) minmax(0, 1fr);
+    }
+
+    .hiw-step-head h2 {
+        font-size: 0.8rem;
+    }
+
+    .hiw-step-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .hiw-step-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+
+    .hiw-why-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hiw-why-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hiw-why-item span {
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hiw-why-grid {
+        grid-template-columns: repeat(10, 1fr);
+        gap: 0.85rem 0.5rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .hiw-steps-grid--3 .hiw-step-card:last-child {
+        max-width: none;
+    }
+}

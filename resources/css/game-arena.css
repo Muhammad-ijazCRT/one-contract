@@ -1,0 +1,390 @@
+/* Game Arena — choose your game (client mockup) */
+.dash-body--games {
+    --ocg-gold: #efff00;
+    --ocg-blue: #3b82f6;
+    --ocg-green: #39ff14;
+    --ocg-purple: #a855f7;
+}
+
+.dash-body--games .dash-content {
+    max-width: none !important;
+    width: 100%;
+    padding-bottom: 5.5rem;
+}
+
+.oc-games {
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+
+.ocg-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+    text-align: center;
+    padding: 0.35rem 0 0.15rem;
+}
+
+.ocg-hero h1 {
+    margin: 0;
+    font-size: clamp(1.35rem, 3.2vw, 2rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.06em;
+    color: var(--ocg-gold);
+    text-shadow: 0 0 18px rgba(239, 255, 0, 0.45);
+}
+
+.ocg-hero p {
+    width: 100%;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.ocg-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--ocg-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+}
+
+.ocg-hero-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+}
+
+.ocg-hero-lines i {
+    display: block;
+    width: 34px;
+    height: 2px;
+    background: var(--ocg-gold);
+    box-shadow: 0 0 8px rgba(239, 255, 0, 0.6);
+}
+
+.ocg-hero-lines--flip i:nth-child(1) { width: 22px; margin-left: auto; }
+.ocg-hero-lines--flip i:nth-child(2) { width: 28px; margin-left: auto; }
+.ocg-hero-lines:not(.ocg-hero-lines--flip) i:nth-child(1) { width: 22px; }
+.ocg-hero-lines:not(.ocg-hero-lines--flip) i:nth-child(2) { width: 28px; }
+
+.ocg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.ocg-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.1rem;
+    padding: 1rem 1rem 1.1rem;
+    background:
+        radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.05), transparent 55%),
+        #070707;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    min-height: 100%;
+}
+
+.ocg-card--rpsv {
+    border-color: rgba(239, 255, 0, 0.55);
+    box-shadow: 0 0 24px rgba(239, 255, 0, 0.12);
+}
+
+.ocg-card--pred {
+    border-color: rgba(59, 130, 246, 0.65);
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.14);
+}
+
+.ocg-card--azu {
+    border-color: rgba(57, 255, 20, 0.55);
+    box-shadow: 0 0 24px rgba(57, 255, 20, 0.12);
+}
+
+.ocg-badges {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.ocg-badges--end {
+    justify-content: flex-end;
+}
+
+.ocg-hot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.ocg-mode {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+}
+
+.ocg-card--pred .ocg-mode { color: #93c5fd; border-color: rgba(59, 130, 246, 0.45); }
+.ocg-card--azu .ocg-mode { color: #86efac; border-color: rgba(57, 255, 20, 0.4); }
+
+.ocg-art {
+    position: relative;
+    display: block;
+    min-height: 170px;
+    margin: 0.15rem 0 0.55rem;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.ocg-art picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.ocg-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+}
+
+.ocg-copy {
+    text-align: center;
+    margin-bottom: 0.85rem;
+}
+
+.ocg-copy h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+.ocg-card--rpsv .ocg-copy h2 { color: #fff; text-shadow: 0 0 12px rgba(239, 255, 0, 0.35); }
+.ocg-card--pred .ocg-copy h2 { color: #93c5fd; }
+.ocg-card--azu .ocg-copy h2 { color: #86efac; }
+
+.ocg-copy strong {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ocg-gold);
+}
+
+.ocg-copy em {
+    display: block;
+    margin-top: 0.45rem;
+    font-style: normal;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.ocg-card--rpsv .ocg-copy em { color: var(--ocg-gold); }
+.ocg-card--pred .ocg-copy em { color: #60a5fa; }
+.ocg-card--azu .ocg-copy em { color: var(--ocg-green); }
+
+.ocg-copy p {
+    margin: 0.4rem 0 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.ocg-play {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 0.7rem;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    border: 0;
+}
+
+.ocg-play--gold {
+    background: linear-gradient(135deg, #f5e000, #ffb800);
+    color: #000;
+    box-shadow: 0 0 20px rgba(239, 255, 0, 0.3);
+}
+
+.ocg-play--blue {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.35);
+}
+
+.ocg-play--green {
+    background: linear-gradient(135deg, #15803d, #16a34a);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(22, 163, 74, 0.35);
+}
+
+.ocg-play:hover {
+    filter: brightness(1.06);
+}
+
+.ocg-feats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
+    padding: 1rem 0.25rem;
+}
+
+.ocg-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.ocg-feat-ico {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+}
+
+.ocg-feat-ico--green { background: rgba(57, 255, 20, 0.14); color: var(--ocg-green); }
+.ocg-feat-ico--gold { background: rgba(239, 255, 0, 0.14); color: var(--ocg-gold); }
+.ocg-feat-ico--purple { background: rgba(168, 85, 247, 0.16); color: #c084fc; }
+.ocg-feat-ico--blue { background: rgba(59, 130, 246, 0.16); color: #60a5fa; }
+
+.ocg-feat strong {
+    display: block;
+    font-size: 0.88rem;
+    margin-bottom: 0.15rem;
+}
+
+.ocg-feat p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    line-height: 1.35;
+}
+
+.ocg-cta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(168, 85, 247, 0.65);
+    background:
+        linear-gradient(90deg, rgba(88, 28, 135, 0.35), rgba(10, 10, 10, 0.95) 40%, rgba(88, 28, 135, 0.3));
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.22);
+    clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0 50%);
+}
+
+.ocg-cta-logo {
+    filter: drop-shadow(0 0 12px rgba(57, 255, 20, 0.45));
+}
+
+.ocg-cta-copy strong {
+    display: block;
+    font-size: 1.05rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+}
+
+.ocg-cta-copy p {
+    margin: 0.2rem 0 0;
+    color: #cbd5e1;
+    font-size: 0.82rem;
+}
+
+.ocg-cta-btn {
+    width: auto;
+    min-width: 160px;
+    padding-inline: 1.25rem;
+    border-radius: 0.65rem;
+}
+
+@media (max-width: 1100px) {
+    .ocg-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ocg-feats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ocg-cta {
+        grid-template-columns: auto 1fr;
+        clip-path: none;
+        border-radius: 1rem;
+    }
+
+    .ocg-cta-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .ocg-art {
+        aspect-ratio: 3 / 4;
+        min-height: 0;
+    }
+
+    .ocg-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 28%;
+    }
+}
+
+@media (max-width: 640px) {
+    .ocg-feats {
+        grid-template-columns: 1fr;
+    }
+
+    .ocg-hero-lines {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dash-body--games .dash-content {
+        padding-bottom: 6.25rem;
+    }
+}

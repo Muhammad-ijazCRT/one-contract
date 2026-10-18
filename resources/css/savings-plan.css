@@ -1,0 +1,590 @@
+/* ============================================================
+   Savings Plan Page — savings-plan.css
+   Dark navy (#07111f / #0c1727) + gold (#f4c542) theme.
+   Class prefix: sp-
+   ============================================================ */
+
+/* ── Page wrapper ─────────────────────────────────────────── */
+.sp-page {
+    padding-top: 72px;
+    font-family: inherit;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.sp-hero {
+    position: relative;
+    padding-block: 4.5rem 3.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.sp-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 65% 55% at 50% 30%, rgba(244, 197, 66, 0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 40% at 15% 65%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse 35% 30% at 85% 70%, rgba(59, 130, 246, 0.09) 0%, transparent 50%),
+        linear-gradient(180deg, #07111f 0%, #0c1727 100%);
+    pointer-events: none;
+}
+
+.sp-hero-content {
+    position: relative;
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.sp-hero-title {
+    font-size: clamp(2.4rem, 6vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.0;
+    margin: 0.85rem 0 0.8rem;
+    color: #ffffff;
+    text-wrap: balance;
+}
+
+.sp-hero-tagline {
+    color: #f4c542;
+    font-size: clamp(1rem, 2.5vw, 1.18rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+}
+
+.sp-hero-tagline .dot {
+    opacity: 0.6;
+    margin-inline: 0.35rem;
+}
+
+.sp-hero-desc {
+    color: #c7d4e6;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.8;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+/* ============================================================
+   SHARED UTILITIES
+   ============================================================ */
+.sp-section {
+    padding-block: 4rem;
+}
+
+.sp-section--light {
+    background: #0a0e14;
+    color: #94a3b8;
+}
+
+.sp-section--dark {
+    background: #07111f;
+    color: #c7d4e6;
+}
+
+.sp-section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sp-section-header h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    color: inherit;
+    text-wrap: balance;
+}
+
+.sp-section--light .sp-section-header h2 {
+    color: #ffffff;
+}
+
+.sp-section--dark .sp-section-header h2 {
+    color: #ffffff;
+}
+
+.sp-section-header p {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.sp-section--dark .sp-section-header p {
+    color: #8eaac8;
+}
+
+.sp-underline {
+    display: block;
+    width: 52px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f4c542, #f9a12e);
+    margin: 0.75rem auto 0;
+}
+
+/* ============================================================
+   HOW IT WORKS — Steps
+   ============================================================ */
+.sp-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.sp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: #151b24;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sp-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.sp-step-num {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f4c542 0%, #e6a817 100%);
+    color: #07111f;
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(244, 197, 66, 0.35);
+}
+
+.sp-step-body h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.4rem;
+    line-height: 1.3;
+}
+
+.sp-step-body p {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
+.sp-features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.sp-feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.5rem 1.35rem;
+    border-radius: 18px;
+    background: #0c1727;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sp-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+    border-color: rgba(244, 197, 66, 0.18);
+}
+
+.sp-feature-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+}
+
+.sp-feature-icon.gold   { background: rgba(244, 197, 66, 0.12);  color: #f4c542; }
+.sp-feature-icon.green  { background: rgba(16, 185, 129, 0.12);  color: #10b981; }
+.sp-feature-icon.blue   { background: rgba(59, 130, 246, 0.12);  color: #3b82f6; }
+.sp-feature-icon.purple { background: rgba(167, 139, 250, 0.12); color: #a78bfa; }
+.sp-feature-icon.orange { background: rgba(251, 146, 60, 0.12);  color: #fb923c; }
+
+.sp-feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.sp-feature-card p {
+    font-size: 0.875rem;
+    color: #8eaac8;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ============================================================
+   CALCULATOR TABLE
+   ============================================================ */
+.sp-calc-wrap {
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+.sp-calc-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.sp-calc-table thead tr {
+    background: linear-gradient(90deg, #07111f 0%, #0c1727 100%);
+}
+
+.sp-calc-table thead th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8eaac8;
+    border-bottom: 2px solid #1a2d47;
+}
+
+.sp-calc-table thead th:last-child {
+    color: #f4c542;
+}
+
+.sp-calc-table tbody tr {
+    background: #121a24;
+    transition: background 0.2s ease;
+}
+
+.sp-calc-table tbody tr:nth-child(even) {
+    background: #151b24;
+}
+
+.sp-calc-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.sp-calc-table td {
+    padding: 1.1rem 1.25rem;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.sp-calc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.sp-calc-table td:last-child {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #10b981;
+    letter-spacing: -0.01em;
+}
+
+/* Gold accent badge for the earn column */
+.sp-earn-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 197, 66, 0.12), rgba(249, 161, 46, 0.12));
+    border: 1px solid rgba(244, 197, 66, 0.35);
+    border-radius: 999px;
+    color: #f4c542;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.sp-earn-badge i {
+    font-size: 0.8rem;
+    color: #f4c542;
+}
+
+/* Mobile calc cards fallback */
+.sp-calc-cards {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sp-calc-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    background: #151b24;
+}
+
+.sp-calc-card-header {
+    padding: 0.9rem 1.1rem;
+    background: linear-gradient(90deg, #07111f, #0c1727);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sp-calc-card-header span {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.sp-calc-card-header small {
+    font-size: 0.78rem;
+    color: #8eaac8;
+}
+
+.sp-calc-card-body {
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sp-calc-card-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.sp-calc-card-stat label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sp-calc-card-stat span {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.sp-calc-card-earn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.85rem;
+    background: linear-gradient(90deg, rgba(244, 197, 66, 0.12), rgba(249, 161, 46, 0.12));
+    border: 1px solid rgba(244, 197, 66, 0.35);
+    border-radius: 999px;
+    color: #f4c542;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.sp-faq-list {
+    max-width: 780px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sp-faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    background: #0c1727;
+    overflow: hidden;
+}
+
+.sp-faq-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: #f1f5f9;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: background 0.2s ease;
+}
+
+.sp-faq-btn:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sp-faq-btn[aria-expanded="true"] {
+    color: #f4c542;
+}
+
+.sp-faq-chevron {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(244, 197, 66, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4c542;
+    font-size: 0.7rem;
+    transition: transform 0.3s ease, background 0.2s ease;
+}
+
+.sp-faq-btn[aria-expanded="true"] .sp-faq-chevron {
+    transform: rotate(180deg);
+    background: rgba(244, 197, 66, 0.12);
+}
+
+.sp-faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+    padding: 0 1.5rem;
+}
+
+.sp-faq-body.open {
+    max-height: 300px;
+    padding: 0 1.5rem 1.25rem;
+}
+
+.sp-faq-body p {
+    font-size: 0.92rem;
+    color: #8eaac8;
+    line-height: 1.8;
+    margin: 0;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 0.9rem;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.sp-cta {
+    padding-block: 5rem;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(244, 197, 66, 0.10) 0%, transparent 65%),
+        linear-gradient(180deg, #07111f 0%, #0c1727 100%);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sp-cta h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+}
+
+.sp-cta p {
+    font-size: 1.05rem;
+    color: #8eaac8;
+    margin: 0 0 2rem;
+}
+
+.sp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.25rem;
+    background: linear-gradient(135deg, #f4c542 0%, #e6a817 100%);
+    color: #07111f;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+    box-shadow: 0 8px 28px rgba(244, 197, 66, 0.3);
+    letter-spacing: -0.01em;
+}
+
+.sp-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(244, 197, 66, 0.45);
+    filter: brightness(1.06);
+}
+
+.sp-cta-btn i {
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (min-width: 640px) {
+    .sp-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sp-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Switch from table to cards on small screens */
+    .sp-calc-table-wrap {
+        display: none;
+    }
+
+    .sp-calc-cards {
+        display: flex;
+    }
+}
+
+@media (min-width: 860px) {
+    .sp-features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Show table on medium+ screens */
+    .sp-calc-table-wrap {
+        display: block;
+    }
+
+    .sp-calc-cards {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sp-hero {
+        padding-block: 6rem 4.5rem;
+    }
+
+    .sp-steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

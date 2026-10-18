@@ -1,0 +1,504 @@
+/* Investment Scheme mock — 3 sections fidelity */
+.dash-body--invest-scheme .dash-content {
+    max-width: none !important;
+    width: 100%;
+    padding-bottom: 5.5rem;
+    background: #000 !important;
+}
+
+.oc-ism {
+    --ism-gold: #ffd700;
+    --ism-green: #39ff14;
+    --ism-orange: #ff8a1f;
+    --ism-blue: #3b82f6;
+    --ism-purple: #c084fc;
+    --ism-muted: #9ca3af;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #000;
+}
+
+/* ========== SECTION 1: Hero ========== */
+.ocism-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 1.5rem 2rem;
+    align-items: center;
+    min-height: clamp(320px, 42vw, 480px);
+    padding: clamp(1.5rem, 3vw, 2.75rem) clamp(1.1rem, 3vw, 2.5rem);
+    border-radius: 0;
+    border: 0;
+    background:
+        radial-gradient(ellipse 55% 50% at 78% 72%, rgba(255, 215, 0, 0.16), transparent 62%),
+        radial-gradient(circle at 82% 78%, transparent 18%, rgba(255, 215, 0, 0.07) 19%, transparent 20%),
+        radial-gradient(circle at 82% 78%, transparent 28%, rgba(255, 215, 0, 0.06) 29%, transparent 30%),
+        radial-gradient(circle at 82% 78%, transparent 38%, rgba(255, 215, 0, 0.05) 39%, transparent 40%),
+        #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.ocism-hero::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 42%;
+    background:
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35)),
+        repeating-linear-gradient(0deg, transparent 0 22px, rgba(255, 215, 0, 0.035) 22px 23px),
+        repeating-linear-gradient(90deg, transparent 0 22px, rgba(255, 215, 0, 0.035) 22px 23px);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.ocism-hero-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.ocism-hero-copy h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.ocism-hero-copy h1 em {
+    display: block;
+    margin-top: 0.08em;
+    font-style: italic;
+    color: var(--ism-gold);
+    text-shadow: 0 0 28px rgba(255, 215, 0, 0.35);
+    border-bottom: 4px solid var(--ism-gold);
+    width: fit-content;
+    padding-bottom: 0.06em;
+}
+
+.ocism-hero-copy p {
+    margin: 1.15rem 0 0;
+    max-width: 28rem;
+    color: #f3f4f6;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.55;
+    font-weight: 500;
+}
+
+.ocism-hero-art {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: clamp(260px, 36vw, 420px);
+}
+
+.ocism-hero-art img {
+    width: min(100%, 620px);
+    max-height: clamp(280px, 40vw, 440px);
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom;
+    mix-blend-mode: normal;
+    background: transparent;
+    filter: drop-shadow(0 20px 50px rgba(255, 215, 0, 0.22));
+}
+
+/* ========== SECTION head ========== */
+.ocism-section-head {
+    text-align: center;
+    margin: 0.5rem 0 0.25rem;
+    padding: 0 1rem;
+}
+
+.ocism-section-head h2 {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.ocism-section-head h2 em {
+    font-style: normal;
+    color: var(--ism-gold);
+}
+
+.ocism-section-head p {
+    margin: 0.55rem 0 0;
+    color: #d1d5db;
+    font-size: 0.95rem;
+}
+
+/* Compact wallet strip */
+.ocism-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.ocism-strip article {
+    padding: 0.85rem 0.95rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0a0a0a;
+}
+
+.ocism-strip span {
+    display: block;
+    color: var(--ism-muted);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.ocism-strip strong {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.ocism-strip strong.is-gold { color: var(--ism-gold); }
+.ocism-strip strong.is-green { color: var(--ism-green); }
+
+.ocism-strip a {
+    display: inline-block;
+    margin-top: 0.45rem;
+    color: var(--ism-gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* ========== SECTION 2: Cards ========== */
+.ocism-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.1rem;
+}
+
+.ocism-card {
+    --tone: var(--ism-gold);
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.05rem;
+    border: 1.5px solid color-mix(in srgb, var(--tone) 60%, transparent);
+    background: linear-gradient(180deg, #0c0c0c 0%, #050505 100%);
+    overflow: hidden;
+    min-height: 100%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.ocism-card:nth-child(4) { grid-column: 2 / span 2; }
+.ocism-card:nth-child(5) { grid-column: 4 / span 2; }
+
+.ocism-card--gold { --tone: var(--ism-gold); }
+.ocism-card--green { --tone: var(--ism-green); }
+.ocism-card--orange { --tone: var(--ism-orange); }
+.ocism-card--blue { --tone: var(--ism-blue); }
+.ocism-card--purple { --tone: var(--ism-purple); }
+
+.ocism-card-top {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 0.85rem;
+    padding: 1rem 1rem 0.65rem;
+    align-items: start;
+}
+
+.ocism-card-media {
+    width: 118px;
+    height: 118px;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    border: 1.5px solid color-mix(in srgb, var(--tone) 50%, transparent);
+    background: #000;
+    box-shadow: 0 0 18px color-mix(in srgb, var(--tone) 18%, transparent);
+}
+
+.ocism-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    background: #000;
+}
+
+.ocism-card-title h3 {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tone);
+    line-height: 1.2;
+    text-shadow: 0 0 14px color-mix(in srgb, var(--tone) 30%, transparent);
+}
+
+.ocism-card-title .ocism-slogan {
+    display: block;
+    margin-top: 0.28rem;
+    color: #e5e7eb;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.ocism-daily {
+    margin-top: 0.7rem;
+}
+
+.ocism-daily span {
+    display: block;
+    color: var(--ism-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 0.1rem;
+}
+
+.ocism-daily strong {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--tone);
+    line-height: 1;
+    text-shadow: 0 0 20px color-mix(in srgb, var(--tone) 40%, transparent);
+}
+
+.ocism-meta {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.ocism-meta li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+}
+
+.ocism-meta li .ocism-meta-l {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #d1d5db;
+    font-weight: 600;
+}
+
+.ocism-meta li img {
+    width: 18px;
+    height: 18px;
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--tone) 35%, transparent));
+}
+
+.ocism-meta li b {
+    color: #fff;
+    font-weight: 800;
+    text-align: right;
+}
+
+.ocism-action {
+    margin-top: auto;
+    padding: 0 1rem 1rem;
+}
+
+.ocism-action form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ocism-amount {
+    display: flex;
+    align-items: center;
+    border-radius: 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #000;
+    overflow: hidden;
+}
+
+.ocism-amount span {
+    padding: 0.6rem 0.7rem;
+    color: var(--ism-muted);
+    font-weight: 800;
+}
+
+.ocism-amount input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 0.6rem 0.7rem 0.6rem 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    outline: none;
+}
+
+.ocism-invest-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.88rem 1rem;
+    border: 0;
+    border-radius: 0.7rem;
+    color: #0a0a0a;
+    font-size: 0.92rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--tone) 75%, #fff), var(--tone) 45%, color-mix(in srgb, var(--tone) 70%, #000));
+    box-shadow: 0 0 22px color-mix(in srgb, var(--tone) 32%, transparent);
+}
+
+.ocism-card--green .ocism-invest-btn,
+.ocism-card--blue .ocism-invest-btn,
+.ocism-card--purple .ocism-invest-btn {
+    color: #fff;
+}
+
+.ocism-invest-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.ocism-hint {
+    margin: 0;
+    color: #f87171;
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.ocism-locked {
+    margin: 0;
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--ism-muted);
+    font-size: 0.8rem;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 0.65rem;
+}
+
+/* ========== SECTION 3: Tip ========== */
+.ocism-tip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 1.35rem;
+    border-radius: 0.95rem;
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+    background:
+        radial-gradient(ellipse 40% 120% at 100% 50%, rgba(255, 215, 0, 0.08), transparent 55%),
+        repeating-linear-gradient(-32deg, transparent 0 10px, rgba(255, 215, 0, 0.045) 10px 11px),
+        #050505;
+    overflow: hidden;
+}
+
+.ocism-tip::after {
+    content: "";
+    position: absolute;
+    right: 8%;
+    top: 20%;
+    width: 120px;
+    height: 60%;
+    background-image: radial-gradient(circle, rgba(255, 215, 0, 0.35) 1px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.ocism-tip-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.55rem;
+    border: 1.5px solid rgba(255, 215, 0, 0.55);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: rgba(255, 215, 0, 0.06);
+    position: relative;
+    z-index: 1;
+}
+
+.ocism-tip-icon img {
+    width: 26px;
+    height: 26px;
+}
+
+.ocism-tip-text {
+    position: relative;
+    z-index: 1;
+}
+
+.ocism-tip-text strong {
+    display: block;
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.ocism-tip-text span {
+    display: block;
+    margin-top: 0.25rem;
+    color: #9ca3af;
+    font-size: 0.88rem;
+}
+
+.ocism-panel {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0a0a0a;
+}
+
+.ocism-panel h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 1100px) {
+    .ocism-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ocism-card,
+    .ocism-card:nth-child(4),
+    .ocism-card:nth-child(5) { grid-column: auto; }
+}
+
+@media (max-width: 860px) {
+    .ocism-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: 0;
+    }
+    .ocism-hero-copy h1 em { margin-left: auto; margin-right: auto; }
+    .ocism-hero-copy p { margin-left: auto; margin-right: auto; }
+    .ocism-hero-art { min-height: 240px; }
+    .ocism-hero-art img { max-height: 280px; }
+    .ocism-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ocism-grid { grid-template-columns: 1fr; }
+    .ocism-card-top { grid-template-columns: 100px 1fr; }
+    .ocism-card-media { width: 100px; height: 100px; }
+}
+
+@media (min-width: 1024px) {
+    .dash-body--invest-scheme .dash-content { padding-bottom: 6.25rem; }
+}

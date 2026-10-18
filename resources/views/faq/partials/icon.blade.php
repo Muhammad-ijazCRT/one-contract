@@ -1,0 +1,11 @@
+@php
+    $icons = [
+        'rocket' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 14.5l-2.8-2.8a18 18 0 0 1 2.2-4.2A11 11 0 0 1 21 3c0 2.2-.6 5.8-4.5 8.8a17 17 0 0 1-4.5 2.7z" fill="currentColor" opacity="0.3"/><path d="M12 14.5l-2.8-2.8a18 18 0 0 1 2.2-4.2A11 11 0 0 1 21 3c0 2.2-.6 5.8-4.5 8.8a17 17 0 0 1-4.5 2.7z" stroke="currentColor" stroke-width="1.6"/><path d="M5 19.5c-1.2 1-1.8 3.8-1.8 3.8s2.9-.5 3.9-1.7c.6-.7.6-1.7-.1-2.4-.7-.7-1.7-.7-2.4 0z" fill="currentColor"/></svg>',
+        'chart' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="13" width="3.5" height="7" rx="0.5" fill="currentColor"/><rect x="9" y="9" width="3.5" height="11" rx="0.5" fill="currentColor"/><rect x="14.5" y="5" width="3.5" height="15" rx="0.5" fill="currentColor"/><path d="M19 8l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+        'wallet' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="14" r="1.2" fill="currentColor"/></svg>',
+        'users' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="currentColor"/><path d="M3.5 19.5v-1.2c0-2.4 2.2-4.3 5.5-4.3s5.5 1.9 5.5 4.3v1.2" fill="currentColor"/><circle cx="17" cy="9" r="2.5" fill="currentColor" opacity="0.85"/><path d="M14.5 19.5v-.8c0-1.8 1.6-3.2 4-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+        'shield' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5L4.5 5.5v6.2c0 5.2 3.2 9.6 7.5 11.3 4.3-1.7 7.5-6.1 7.5-11.3V5.5L12 2.5z" stroke="currentColor" stroke-width="1.8"/><path d="M9 12.2l2 2 4.2-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+        'info' => '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="1" fill="currentColor"/></svg>',
+    ];
+@endphp
+{!! $icons[$name] ?? '' !!}

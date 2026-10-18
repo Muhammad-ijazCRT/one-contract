@@ -1,0 +1,569 @@
+/* =========================================================
+   Support Center — mock (full-width dark / neon green / gold)
+   ========================================================= */
+
+body.dash-body--support {
+    background: #000 !important;
+}
+
+body.dash-body--support .dash-body,
+body.dash-body--support.dash-body,
+body.dash-body--support .dash-main,
+body.dash-body--support .dash-content {
+    background: #000 !important;
+}
+
+body.dash-body--support .dash-content,
+.dash-layout.support-layout .dash-content {
+    padding: 0.45rem 0.65rem 5.5rem !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+}
+
+body.dash-body--support .dash-layout,
+body.dash-body--support .dash-main,
+.dash-layout.support-layout,
+.dash-layout.support-layout .dash-main {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.ocsc-page {
+    --ocsc-gold: #efff00;
+    --ocsc-green: #39ff14;
+    --ocsc-card: #0a0a0a;
+    --ocsc-line: rgba(255, 255, 255, 0.12);
+    --ocsc-muted: rgba(255, 255, 255, 0.62);
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.ocsc-alert {
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(57, 255, 20, 0.35);
+    background: rgba(57, 255, 20, 0.08);
+    color: #b8ff9f;
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+/* Hero — oversized cube like mock */
+.ocsc-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 46%);
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+    min-height: 210px;
+    padding: 0.35rem 0.15rem 0.25rem;
+    overflow: visible;
+}
+
+.ocsc-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.95rem;
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+}
+
+.ocsc-brand img {
+    border-radius: 0.45rem;
+    filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.45));
+}
+
+.ocsc-brand em {
+    font-style: normal;
+    color: var(--ocsc-green);
+}
+
+.ocsc-brand span { color: #fff; }
+.ocsc-brand sup {
+    font-size: 0.58rem;
+    color: var(--ocsc-green);
+    margin-left: 0.12rem;
+}
+
+.ocsc-hero-copy h1 {
+    margin: 0;
+    font-size: clamp(2rem, 7.5vw, 2.85rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    line-height: 0.98;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.ocsc-hero-copy h1 span { color: var(--ocsc-gold); }
+
+.ocsc-hero-copy p {
+    margin: 0.55rem 0 0;
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.ocsc-hero-art {
+    display: grid;
+    place-items: center;
+    justify-self: end;
+    width: 100%;
+}
+
+.ocsc-cube {
+    width: min(320px, 100%);
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 28px rgba(57, 255, 20, 0.5)) drop-shadow(0 12px 24px rgba(239, 255, 0, 0.18));
+}
+
+/* Cards */
+.ocsc-card,
+.ocsc-help-card {
+    width: 100%;
+    padding: 1.05rem 1rem;
+    border-radius: 0.95rem;
+    border: 1px solid var(--ocsc-line);
+    background: var(--ocsc-card);
+    box-sizing: border-box;
+}
+
+.ocsc-help-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+}
+
+.ocsc-help-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.ocsc-help-copy strong {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.ocsc-help-copy p {
+    margin: 0.35rem 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-width: 36ch;
+}
+
+.ocsc-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    margin-bottom: 0.25rem;
+}
+
+.ocsc-card-head h2,
+.ocsc-section-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.ocsc-card-head h2 span { color: var(--ocsc-gold); }
+
+.ocsc-section-title {
+    margin-bottom: 0.9rem;
+    color: #fff;
+}
+
+.ocsc-link {
+    color: var(--ocsc-gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    white-space: nowrap;
+}
+
+/* Buttons */
+.ocsc-btn-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.7rem;
+    border: 0;
+    background: var(--ocsc-gold);
+    color: #111;
+    font-weight: 900;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: 0 0 18px rgba(239, 255, 0, 0.22);
+}
+
+.ocsc-btn-solid i { color: #111; }
+
+.ocsc-btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border-radius: 0.7rem;
+    border: 1.5px solid var(--ocsc-gold);
+    background: transparent;
+    color: var(--ocsc-gold);
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ocsc-btn-block { width: 100%; }
+.ocsc-btn-toggle { margin-top: 0.4rem; }
+
+/* FAQ — gold / green icon tones like mock */
+.ocsc-faq-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ocsc-faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ocsc-faq-item:last-child { border-bottom: 0; }
+
+.ocsc-faq-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.95rem 0.1rem;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+}
+
+.ocsc-faq-ico {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.75rem;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 1.05rem;
+    background: transparent;
+}
+
+.ocsc-faq-ico--gold {
+    border: 1.5px solid rgba(239, 255, 0, 0.75);
+    color: var(--ocsc-gold);
+    box-shadow: 0 0 12px rgba(239, 255, 0, 0.12);
+}
+
+.ocsc-faq-ico--green {
+    border: 1.5px solid rgba(57, 255, 20, 0.75);
+    color: var(--ocsc-green);
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.14);
+}
+
+.ocsc-faq-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.ocsc-faq-text strong {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.ocsc-faq-text em {
+    font-style: normal;
+    color: var(--ocsc-muted);
+    font-size: 0.74rem;
+    line-height: 1.35;
+}
+
+.ocsc-faq-chevron {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.8rem;
+    transition: transform 0.15s ease;
+}
+
+.ocsc-faq-item.is-open .ocsc-faq-chevron {
+    transform: rotate(90deg);
+    color: var(--ocsc-gold);
+}
+
+.ocsc-faq-panel {
+    padding: 0 0.15rem 0.95rem 3.55rem;
+}
+
+.ocsc-faq-panel p {
+    margin: 0 0 0.45rem;
+    color: var(--ocsc-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.ocsc-faq-panel a {
+    color: var(--ocsc-gold);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* Contact — gold outline plane (mock) */
+.ocsc-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.95rem;
+}
+
+.ocsc-contact-ico {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: var(--ocsc-gold);
+    background: transparent;
+    border: 1.5px solid var(--ocsc-gold);
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    box-shadow: 0 0 14px rgba(239, 255, 0, 0.15);
+}
+
+.ocsc-contact-row strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.ocsc-contact-row em {
+    display: block;
+    margin-top: 0.18rem;
+    font-style: normal;
+    color: var(--ocsc-muted);
+    font-size: 0.78rem;
+}
+
+/* Submit */
+.ocsc-submit-lead {
+    margin: 0 0 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+.ocsc-form-wrap {
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--ocsc-line);
+}
+
+.ocsc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ocsc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.ocsc-field > span {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ocsc-muted);
+}
+
+.ocsc-field select,
+.ocsc-field textarea {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(239, 255, 0, 0.32);
+    background: #050505;
+    color: #fff;
+    padding: 0.75rem 0.85rem;
+    font: inherit;
+    outline: none;
+}
+
+.ocsc-field select option {
+    background: #111;
+    color: #fff;
+}
+
+.ocsc-error {
+    color: #f87171;
+    font-size: 0.75rem;
+    font-style: normal;
+}
+
+.ocsc-foot-note {
+    margin: 1.05rem 0 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.74rem;
+    line-height: 1.45;
+}
+
+.ocsc-inf {
+    color: var(--ocsc-green);
+    font-weight: 800;
+    margin-left: 0.2rem;
+}
+
+/* Tickets */
+.ocsc-ticket-count {
+    color: var(--ocsc-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.ocsc-empty {
+    padding: 0.85rem 0 0.25rem;
+    color: var(--ocsc-muted);
+    font-size: 0.82rem;
+}
+
+.ocsc-tickets-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ocsc-ticket-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ocsc-ticket-row:last-child { border-bottom: 0; }
+
+.ocsc-ticket-row strong {
+    display: block;
+    font-size: 0.88rem;
+}
+
+.ocsc-ticket-row em {
+    display: block;
+    margin-top: 0.15rem;
+    font-style: normal;
+    color: var(--ocsc-muted);
+    font-size: 0.72rem;
+}
+
+.ocsc-status {
+    display: inline-flex;
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.ocsc-status--open {
+    color: var(--ocsc-green);
+    border: 1px solid rgba(57, 255, 20, 0.45);
+}
+
+.ocsc-status--resolved {
+    color: var(--ocsc-muted);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 720px) {
+    .ocsc-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(140px, 48%);
+        min-height: 200px;
+        align-items: start;
+        padding-top: 0.2rem;
+    }
+
+    .ocsc-hero-copy h1 {
+        font-size: clamp(1.85rem, 9vw, 2.35rem);
+    }
+
+    .ocsc-cube {
+        width: min(280px, 100%);
+        margin-top: -0.35rem;
+    }
+
+    .ocsc-help-card {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .ocsc-help-copy {
+        flex: 1 1 140px;
+    }
+
+    .ocsc-btn-solid {
+        flex: 0 0 auto;
+    }
+
+    .ocsc-faq-panel {
+        padding-left: 0.15rem;
+    }
+
+    body.dash-body--support .dash-content,
+    .dash-layout.support-layout .dash-content {
+        padding-inline: 0.4rem !important;
+    }
+}
+
+@media (min-width: 900px) {
+    .ocsc-cube {
+        width: min(360px, 100%);
+    }
+
+    .ocsc-hero {
+        min-height: 240px;
+    }
+}

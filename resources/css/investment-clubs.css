@@ -1,0 +1,555 @@
+/* ============================================================
+   Investment Clubs Page – investment-clubs.css
+   Theme: dark navy (#07111f / #0c1727), gold accent (#f4c542)
+   Prefix: ic-
+   ============================================================ */
+
+/* ── Page wrapper ────────────────────────────────────────── */
+.ic-page {
+    padding-top: 72px;
+    font-family: inherit;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.ic-hero {
+    position: relative;
+    padding-block: 4.5rem 3.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ic-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(244, 197, 66, 0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(59, 130, 246, 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 35% at 80% 70%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
+        linear-gradient(180deg, #07111f 0%, #0c1727 100%);
+    pointer-events: none;
+}
+
+/* Decorative glowing orb */
+.ic-hero-bg::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244, 197, 66, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.ic-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin-inline: auto;
+}
+
+.ic-hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1;
+    margin: 0.85rem 0 0.6rem;
+    color: #ffffff;
+    text-wrap: balance;
+}
+
+.ic-hero-tagline {
+    color: #f4c542;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+}
+
+.ic-hero-tagline .dot {
+    opacity: 0.55;
+    margin-inline: 0.4rem;
+}
+
+.ic-hero-desc {
+    color: #c7d4e6;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.75;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+/* ============================================================
+   SECTION – shared helpers
+   ============================================================ */
+.ic-section-dark {
+    background: linear-gradient(180deg, #0c1727 0%, #07111f 100%);
+    padding-block: 4rem;
+}
+
+.ic-section-light {
+    background: #0a0e14;
+    color: #94a3b8;
+    padding-block: 4rem;
+}
+
+.ic-section-head {
+    text-align: center;
+    margin-bottom: 2.75rem;
+}
+
+.ic-section-head .section-tag {
+    margin-bottom: 0.75rem;
+}
+
+.ic-section-title {
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0.4rem 0 0.6rem;
+}
+
+.ic-section-title--dark {
+    color: #ffffff;
+}
+
+.ic-section-subtitle {
+    color: #8fa3bd;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    max-width: 560px;
+    margin-inline: auto;
+    line-height: 1.65;
+}
+
+.ic-section-subtitle--dark {
+    color: #94a3b8;
+}
+
+/* ============================================================
+   CLUB CARDS GRID
+   ============================================================ */
+.ic-clubs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.ic-club-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+}
+
+.ic-club-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f4c542, #e6a800);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 20px 20px 0 0;
+}
+
+.ic-club-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(244, 197, 66, 0.2);
+    border-color: rgba(244, 197, 66, 0.25);
+}
+
+.ic-club-card:hover::before {
+    opacity: 1;
+}
+
+/* Card header row: icon + name */
+.ic-club-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.4rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ic-club-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ic-club-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.ic-club-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+}
+
+/* Card body: stats */
+.ic-club-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+}
+
+.ic-club-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ic-rate-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8fa3bd;
+    font-weight: 600;
+}
+
+.ic-rate-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #f4c542;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.ic-rate-unit {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c4a000;
+}
+
+.ic-club-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ic-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.7rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ic-meta-key {
+    font-size: 0.76rem;
+    color: #8fa3bd;
+    font-weight: 500;
+}
+
+.ic-meta-val {
+    font-size: 0.82rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+/* Join Now button */
+.ic-btn-join {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f4c542 0%, #d4a000 100%);
+    color: #07111f;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    margin-top: auto;
+    letter-spacing: 0.01em;
+}
+
+.ic-btn-join:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(244, 197, 66, 0.35);
+    filter: brightness(1.08);
+    color: #07111f;
+    text-decoration: none;
+}
+
+/* ============================================================
+   HOW IT WORKS SECTION
+   ============================================================ */
+.ic-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.ic-step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.85rem;
+    padding: 1.75rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: #151b24;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ic-step-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.ic-step-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f4c542, #c4890a);
+    color: #07111f;
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(244, 197, 66, 0.3);
+}
+
+.ic-step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60a5fa;
+    font-size: 1.35rem;
+}
+
+.ic-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.ic-step-desc {
+    font-size: 0.83rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Connector arrow (desktop) */
+.ic-steps-connector {
+    display: none;
+}
+
+/* ============================================================
+   BENEFITS SECTION
+   ============================================================ */
+.ic-benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.ic-benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.15rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ic-benefit-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(244, 197, 66, 0.2);
+}
+
+.ic-benefit-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(244, 197, 66, 0.18) 0%, rgba(244, 197, 66, 0.06) 100%);
+    border: 1px solid rgba(244, 197, 66, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4c542;
+    font-size: 1.15rem;
+}
+
+.ic-benefit-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.3rem;
+}
+
+.ic-benefit-desc {
+    font-size: 0.8rem;
+    color: #8fa3bd;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.ic-cta {
+    position: relative;
+    padding-block: 5rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ic-cta-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 65% 60% at 50% 50%, rgba(244, 197, 66, 0.12) 0%, transparent 65%),
+        linear-gradient(180deg, #07111f 0%, #0c1727 100%);
+    pointer-events: none;
+}
+
+.ic-cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.ic-cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0.5rem 0 0.75rem;
+    text-wrap: balance;
+}
+
+.ic-cta-desc {
+    color: #8fa3bd;
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.ic-btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f4c542 0%, #d4a000 100%);
+    color: #07111f;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    letter-spacing: 0.01em;
+}
+
+.ic-btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(244, 197, 66, 0.4);
+    filter: brightness(1.08);
+    color: #07111f;
+    text-decoration: none;
+}
+
+/* ============================================================
+   RESPONSIVE – TABLET (≥ 640px)
+   ============================================================ */
+@media (min-width: 640px) {
+    .ic-clubs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ic-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ic-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE – DESKTOP (≥ 768px)
+   ============================================================ */
+@media (min-width: 768px) {
+    .ic-hero {
+        padding-block: 6rem 4.5rem;
+    }
+
+    .ic-clubs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ic-steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ic-benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE – LARGE (≥ 1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+    /* 5 clubs: 3 on first row + 2 centred on second */
+    .ic-clubs-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Fallback: centre last row items when < 5 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* When 3 cols and 5 cards: 4th + 5th card offset to centre */
+    .ic-club-card:nth-child(4) {
+        margin-left: 50%;
+        transform: translateX(-100%);
+    }
+    .ic-club-card:nth-child(4):hover {
+        transform: translateX(-100%) translateY(-6px);
+    }
+    .ic-club-card:nth-child(5) {
+        margin-left: 0;
+    }
+}

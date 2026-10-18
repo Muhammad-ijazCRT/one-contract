@@ -1,0 +1,995 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   DEPOSIT V2 — MOBILE DASHBOARD INTERFACE (DUAL-STATE: CRYPTO / FIAT)
+   Matches reference image_43.png & image_44.png
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ocdep2-bg: #000000;
+  --ocdep2-card-bg: #0f1211;
+  --ocdep2-card-border: rgba(255, 255, 255, 0.08);
+  --ocdep2-gold: #ffd600;
+  --ocdep2-gold-glow: rgba(255, 214, 0, 0.35);
+  --ocdep2-neon-green: #39ff14;
+  --ocdep2-text-dim: #94a3b8;
+  --ocdep2-text-white: #ffffff;
+}
+
+.dash-body--deposit {
+  background: #000000 !important;
+  color: #ffffff;
+}
+
+/* Hide dashboard default topbar, sidebar, titles and dock so mobile screen view renders clean and full */
+.dash-body--deposit .dash-topbar,
+.dash-body--deposit .dash-topbar-titles,
+.dash-body--deposit .oc-page-head,
+.dash-body--deposit .och4-dock,
+.dash-body--deposit .dash-bottom-dock,
+.dash-body--deposit .dash-sidebar {
+  display: none !important;
+}
+
+.dash-body--deposit .dash-layout {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.dash-body--deposit .dash-main {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.dash-body--deposit .dash-content {
+  padding: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.ocdep2-screen-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #000000;
+  margin: 0 auto;
+}
+
+.ocdep2-mobile-container {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  background: #000000;
+  background-image: 
+    radial-gradient(ellipse 260px 180px at 100% 12%, rgba(255, 214, 0, 0.08), transparent),
+    radial-gradient(ellipse 220px 220px at 0% 18%, rgba(255, 214, 0, 0.05), transparent),
+    radial-gradient(ellipse 200px 200px at 50% 90%, rgba(255, 214, 0, 0.04), transparent);
+  padding: 12px 14px 40px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media (min-width: 1100px) {
+  .ocdep2-mobile-container {
+    max-width: 480px;
+    border-left: 1px solid rgba(255, 214, 0, 0.12);
+    border-right: 1px solid rgba(255, 214, 0, 0.12);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.95);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. TOP NAVIGATION HEADER
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+}
+
+.ocdep2-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.ocdep2-back-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ocdep2-back-btn:hover {
+  border-color: var(--ocdep2-gold);
+  color: var(--ocdep2-gold);
+}
+
+.ocdep2-brand-block {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ocdep2-cube-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.6));
+  flex-shrink: 0;
+}
+
+.ocdep2-brand-name {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(9px, 2.7vmin, 12px);
+  font-weight: 900;
+  letter-spacing: 0.1px;
+  color: #39ff14;
+  white-space: nowrap;
+}
+
+.ocdep2-brand-name sup {
+  font-size: clamp(6px, 1.8vmin, 8px);
+}
+
+.ocdep2-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ocdep2-bal-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 3px 6px;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ocdep2-bal-label {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(6px, 1.9vmin, 8.5px);
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ocdep2-bal-dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: clamp(7px, 2.3vmin, 10px);
+  font-weight: 800;
+  color: #ffd600;
+}
+
+.ocdep2-bal-eye {
+  width: 10px;
+  height: 10px;
+  color: #94a3b8;
+}
+
+.ocdep2-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #ffd600;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: clamp(12px, 3.8vmin, 16px);
+  flex-shrink: 0;
+}
+
+.ocdep2-icon-square {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ocdep2-icon-square svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ocdep2-icon-square .ocdep2-bell-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: clamp(7px, 2.2vmin, 9.5px);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. HERO HEADER SECTION WITH DYNAMIC GRAPHIC
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding: 4px 0 2px 0;
+  min-height: 85px;
+}
+
+.ocdep2-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+  flex: 1;
+}
+
+.ocdep2-hero-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(22px, 6.5vmin, 28px);
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.ocdep2-hero-sub {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(10px, 3vmin, 13px);
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ocdep2-hero-art {
+  position: relative;
+  width: 155px;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.ocdep2-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: none;
+  filter: drop-shadow(0 4px 18px rgba(255, 214, 0, 0.25));
+}
+
+.ocdep2-hero-img.is-active {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. SEGMENTED TAB TOGGLE
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-tab-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.ocdep2-tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0d0f0e;
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(11.5px, 3.4vmin, 14px);
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ocdep2-tab-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.ocdep2-tab-btn.is-active {
+  background: #ffd600;
+  color: #000000;
+  border-color: #ffd600;
+  box-shadow: 0 0 16px rgba(255, 214, 0, 0.35);
+}
+
+.ocdep2-tab-btn.is-active svg {
+  fill: #000000;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   4. STEP INDICATOR ROW HEADERS (①, ②, ③)
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-step-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(11.5px, 3.3vmin, 13.5px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.ocdep2-step-badge {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffd600;
+  color: #000000;
+  font-size: clamp(9px, 2.7vmin, 11px);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Selectable Dropdown / Panel */
+.ocdep2-select-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.ocdep2-select-card:hover {
+  border-color: rgba(255, 214, 0, 0.4);
+}
+
+.ocdep2-select-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ocdep2-coin-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ocdep2-coin-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ocdep2-coin-code {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(13px, 3.8vmin, 15.5px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ocdep2-coin-name {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(10.5px, 3.1vmin, 13px);
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.ocdep2-select-native {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.ocdep2-caret {
+  width: 16px;
+  height: 16px;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+/* Network Big Panel */
+.ocdep2-network-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ocdep2-network-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ocdep2-net-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ocdep2-net-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(12.5px, 3.7vmin, 15px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ocdep2-circle-chevron {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #141816;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.ocdep2-circle-chevron svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   5. FIAT PAYMENT METHODS ROW (3 Side-by-side cards)
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.ocdep2-method-card {
+  position: relative;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ocdep2-method-card.is-active {
+  border-color: #ffd600;
+  box-shadow: 0 0 12px rgba(255, 214, 0, 0.25);
+}
+
+.ocdep2-method-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ocdep2-method-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.ocdep2-method-ico svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ocdep2-ico--blue {
+  background: #2563eb;
+}
+
+.ocdep2-ico--orange {
+  background: #ea580c;
+}
+
+.ocdep2-ico--purple {
+  background: #7c3aed;
+}
+
+.ocdep2-method-radio {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ocdep2-method-card.is-active .ocdep2-method-radio {
+  border-color: #ffd600;
+  background: #ffd600;
+  box-shadow: 0 0 6px #ffd600;
+}
+
+.ocdep2-method-radio svg {
+  display: none;
+  width: 10px;
+  height: 10px;
+  stroke: #000000;
+  stroke-width: 3;
+}
+
+.ocdep2-method-card.is-active .ocdep2-method-radio svg {
+  display: block;
+}
+
+.ocdep2-method-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ocdep2-method-name {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(9.5px, 2.85vmin, 12px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.ocdep2-method-sub {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(7px, 2.2vmin, 9.5px);
+  color: #94a3b8;
+  line-height: 1.2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. ENTER AMOUNT & QUICK CHIPS
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-amount-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ocdep2-amount-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ocdep2-currency-sym {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(16px, 5vmin, 22px);
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.ocdep2-amount-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(16px, 5vmin, 22px);
+  font-weight: 900;
+  color: #ffffff;
+  width: 100%;
+}
+
+.ocdep2-amount-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #141816;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 4px 10px;
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(10.5px, 3.2vmin, 13px);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.ocdep2-usd-coin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffd600;
+  color: #000000;
+  font-size: clamp(8.5px, 2.6vmin, 10.5px);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quick Chips */
+.ocdep2-chips-row {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 0;
+}
+
+.ocdep2-chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ocdep2-chip-btn {
+  flex: 1;
+  min-width: 52px;
+  padding: 7px 6px;
+  border-radius: 8px;
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(10px, 3vmin, 12.5px);
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.ocdep2-chip-btn:hover {
+  border-color: rgba(255, 214, 0, 0.4);
+}
+
+.ocdep2-chip-btn.is-active {
+  border: 1.5px solid #ffd600;
+  color: #ffd600;
+  box-shadow: 0 0 10px rgba(255, 214, 0, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   7. DYNAMIC RECEIPT PANEL
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-receipt-card {
+  background: #0d0f0e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ocdep2-receipt-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.ocdep2-receipt-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ocdep2-round-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #181d1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.ocdep2-round-icon-wrap svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ocdep2-receipt-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.ocdep2-receipt-label {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(8.5px, 2.5vmin, 11px);
+  color: #94a3b8;
+}
+
+.ocdep2-receipt-amount {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(13px, 4vmin, 17px);
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.ocdep2-receipt-side {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.ocdep2-rate-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(8.5px, 2.5vmin, 11px);
+  color: #94a3b8;
+}
+
+.ocdep2-rate-head i {
+  font-size: 0.65rem;
+}
+
+.ocdep2-rate-value {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(9.5px, 2.85vmin, 12px);
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+/* Fiat Receipt List */
+.ocdep2-fiat-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ocdep2-fiat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(9.5px, 2.85vmin, 12px);
+  color: #94a3b8;
+}
+
+.ocdep2-fiat-val--green {
+  color: #22c55e;
+  font-weight: 800;
+}
+
+.ocdep2-fiat-val--white {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   8. WARNING BANNER
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-warn-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #11120a;
+  border: 1px solid rgba(255, 214, 0, 0.35);
+  border-radius: 12px;
+  padding: 10px 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ocdep2-warn-triangle {
+  width: 22px;
+  height: 22px;
+  color: #ffd600;
+  flex-shrink: 0;
+}
+
+.ocdep2-warn-text {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(9.5px, 2.8vmin, 12px);
+  color: #e2e8f0;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.ocdep2-warn-text strong,
+.ocdep2-warn-text em {
+  font-style: normal;
+  font-weight: 800;
+  color: #ffd600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   9. PROCEED TO DEPOSIT ACTION BUTTON
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocdep2-submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: #ffd600;
+  color: #000000;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(13px, 3.9vmin, 16px);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 214, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ocdep2-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 214, 0, 0.5);
+}
+
+.ocdep2-submit-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #000000;
+  stroke-width: 2.5;
+}
+
+.ocdep2-submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Hide / Show State Panels */
+.ocdep2-state-panel {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.ocdep2-state-panel.is-active {
+  display: flex;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DEPOSIT HISTORY TABLE BADGES FIX
+   ═══════════════════════════════════════════════════════════════════════ */
+.dash-body--deposit .ocdep-history-table .table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.dash-body--deposit .ocdep-history-table .dash-table {
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.dash-body--deposit .ocdep-wallet-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 4px 10px 4px 6px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 214, 0, 0.4) !important;
+  background: #141816 !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', system-ui, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.dash-body--deposit .ocdep-wallet-chip img {
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+}
+
+.dash-body--deposit .badge-status {
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+

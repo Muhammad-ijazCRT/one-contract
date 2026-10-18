@@ -1,0 +1,744 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ONE CONTRACT™ GLOBAL CHAT - PIXEL PERFECT IMPLEMENTATION
+   Matches User Reference Screenshot (media_1791474718456_a336c0b2.png)
+   Features:
+   - Sticky Top Navbar & Sticky Channel Info Card ("global chat ka navbar stick hona chahiye")
+   - Glowing Neon Accents, Avatars with Role Rings
+   - Admin Highlight Box with glowing green border & pin
+   - Bottom Sticky Dark Composer with emoji, attach & neon green send
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --ocg-neon-green: #39ff14;
+    --ocg-neon-lime: #a3ff2e;
+    --ocg-send-green: #a7f433;
+    --ocg-gold: #f5c518;
+    --ocg-purple: #c084fc;
+    --ocg-blue: #38bdf8;
+    --ocg-bg-black: #000000;
+    --ocg-card-dark: #121413;
+    --ocg-card-border: rgba(255, 255, 255, 0.08);
+    --ocg-admin-bg: rgba(26, 44, 20, 0.45);
+    --ocg-admin-border: #39ff14;
+    --ocg-text-light: #f3f4f6;
+    --ocg-text-muted: #8e9590;
+}
+
+/* Page body styling */
+.dash-body--chat {
+    background-color: #000000 !important;
+    color: #ffffff;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden !important;
+}
+
+.dash-body--chat .dash-layout,
+.dash-body--chat .dash-main,
+.dash-body--chat .dash-content {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide default dashboard dock, topbar and page header on chat screen */
+.dash-body--chat .och4-dock,
+.dash-body--chat .dash-bottom-dock,
+.dash-body--chat .dash-topbar,
+.dash-body--chat .dash-topbar-titles,
+.dash-body--chat .oc-page-head {
+    display: none !important;
+}
+
+/* Screen Wrapper */
+.oc-gchat-screen-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Chat Container: 440px on mobile, fluid & responsive on desktop */
+.oc-gchat-container {
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    background: #000000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@media (min-width: 1100px) {
+    .oc-gchat-container {
+        max-width: 580px; /* Elegant centered chat app layout for desktop */
+        border-left: 1px solid rgba(57, 255, 20, 0.12);
+        border-right: 1px solid rgba(57, 255, 20, 0.12);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. STICKY TOP HEADER
+   Navbar + Channel Info Card pinned to the top on scroll
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocg-sticky-header {
+    position: relative;
+    top: 0;
+    z-index: 50;
+    flex-shrink: 0;
+    background: #000000;
+    padding: 10px 14px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* Top Navbar Row */
+.ocg-top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ocg-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    flex-shrink: 0;
+}
+
+.ocg-back-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ocg-back-btn:hover {
+    transform: translateX(-2px);
+    color: var(--ocg-neon-lime);
+}
+
+.ocg-brand-cluster {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1;
+    margin-left: 6px;
+}
+
+.ocg-brand-dice {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.5));
+}
+
+.ocg-brand-titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.ocg-brand-title {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.ocg-brand-title em {
+    color: #a3ff2e;
+    font-style: italic;
+}
+
+.ocg-brand-title sup {
+    font-size: 0.55rem;
+    font-style: normal;
+    color: #a3ff2e;
+}
+
+.ocg-brand-subtitle {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.44rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+/* Nav Actions (Bell + Avatar) */
+.ocg-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.ocg-nav-icon-circle {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #0d0f0e;
+    border: 1px solid rgba(57, 255, 20, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.ocg-nav-icon-circle svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ocg-nav-icon-circle:hover {
+    border-color: var(--ocg-neon-lime);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.35);
+}
+
+.ocg-nav-bell .ocg-bell-dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ef4444;
+}
+
+/* Channel Card */
+.ocg-channel-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #0e120f;
+    border: 1px solid rgba(57, 255, 20, 0.22);
+    border-radius: 14px;
+    padding: 10px 12px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+}
+
+.ocg-channel-icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ocg-channel-globe-img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.5));
+}
+
+.ocg-channel-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ocg-channel-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.ocg-channel-name {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.ocg-online-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #9ca3af;
+}
+
+.ocg-online-dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #22c55e;
+    display: inline-block;
+}
+
+.ocg-channel-desc {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.62rem;
+    line-height: 1.25;
+    color: #7d857f;
+    margin: 0;
+    white-space: normal;
+}
+
+.ocg-channel-menu {
+    flex-shrink: 0;
+}
+
+.ocg-menu-dots-btn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color 0.15s ease;
+}
+
+.ocg-menu-dots-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.ocg-menu-dots-btn:hover {
+    color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. CHAT STREAM & MESSAGE ITEMS
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocg-stream {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px 14px 14px 14px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(57, 255, 20, 0.4) transparent;
+}
+
+.ocg-stream::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ocg-stream::-webkit-scrollbar-thumb {
+    background: rgba(57, 255, 20, 0.35);
+    border-radius: 999px;
+}
+
+.ocg-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Avatars */
+.ocg-msg-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #111412;
+}
+
+.ocg-avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Message Bubble Body */
+.ocg-msg-body {
+    flex: 1;
+    min-width: 0;
+    background: #141716;
+    border-radius: 12px;
+    padding: 7px 11px 9px 11px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ocg-msg-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ocg-msg-user-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ocg-msg-name {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* User Name Colors by tone */
+.ocg-msg--green .ocg-msg-name,
+.ocg-msg.is-admin .ocg-msg-name {
+    color: #4ade80; /* NaijaBoss & Admin Green */
+}
+
+.ocg-msg--purple .ocg-msg-name {
+    color: #c084fc; /* CryptoQueen Purple */
+}
+
+.ocg-msg--blue .ocg-msg-name {
+    color: #38bdf8; /* CryptoKing Blue */
+}
+
+.ocg-msg--gold .ocg-msg-name {
+    color: #fbbf24; /* BetMaster / LuckyStar Warm Gold */
+}
+
+.ocg-msg--red .ocg-msg-name {
+    color: #f87171; /* KingTrader Coral Red */
+}
+
+.ocg-crown-icon {
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.ocg-admin-badge {
+    background: #39ff14;
+    color: #000000;
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+.ocg-vip {
+    font-size: 0.58rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    background: rgba(239, 255, 0, 0.2);
+    color: #efff00;
+}
+
+.ocg-msg-meta-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ocg-pinned-pin-icon {
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+.ocg-msg-time {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.65rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* Message Text */
+.ocg-msg-text {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: #e5e7eb;
+    margin: 0;
+    word-break: break-word;
+    white-space: pre-line;
+}
+
+/* Admin / Pinned Highlight Message */
+.ocg-msg.is-admin .ocg-msg-body,
+.ocg-msg.is-pinned-msg .ocg-msg-body {
+    background: rgba(18, 30, 16, 0.75);
+    border: 1px solid rgba(57, 255, 20, 0.45);
+    box-shadow: 0 0 14px rgba(57, 255, 20, 0.12);
+}
+
+/* Reactions Footer */
+.ocg-msg-foot {
+    margin-top: 2px;
+}
+
+.ocg-reacts {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.ocg-react {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #0f1210;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 2px 7px;
+    color: #e5e7eb;
+    font-size: 0.68rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ocg-react-emoji {
+    font-size: 0.75rem;
+}
+
+.ocg-react-count {
+    font-size: 0.66rem;
+    color: #d1d5db;
+}
+
+.ocg-react.is-mine {
+    background: rgba(57, 255, 20, 0.18);
+    border-color: rgba(57, 255, 20, 0.4);
+    color: var(--ocg-neon-lime);
+}
+
+.ocg-react:hover {
+    border-color: rgba(57, 255, 20, 0.35);
+    transform: scale(1.04);
+}
+
+.ocg-react-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.ocg-react-add {
+    background: transparent;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 2px 5px;
+    color: #9ca3af;
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+
+.ocg-react-picker {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 0;
+    z-index: 20;
+    display: flex;
+    gap: 4px;
+    background: #141716;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 999px;
+    padding: 3px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.ocg-react-picker button {
+    background: transparent;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.ocg-react-picker button:hover {
+    transform: scale(1.25);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. BOTTOM COMPOSER
+   Exact pill input + circular green send button (WhatsApp style bottom dock)
+   ═══════════════════════════════════════════════════════════════════════ */
+.ocg-composer-shell {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    z-index: 40;
+    padding: 10px 14px calc(14px + env(safe-area-inset-bottom, 0px)) 14px;
+    background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+}
+
+.ocg-composer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.ocg-composer-pill {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #141716;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 6px 12px;
+    gap: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ocg-composer-pill:focus-within {
+    border-color: rgba(57, 255, 20, 0.5);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.15);
+}
+
+.ocg-composer-btn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.05rem;
+    padding: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease, transform 0.15s ease;
+    flex-shrink: 0;
+}
+
+.ocg-composer-btn:hover {
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.ocg-composer-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.82rem;
+    padding: 4px 0;
+}
+
+.ocg-composer-input::placeholder {
+    color: #6b7280;
+}
+
+.ocg-composer-attach {
+    font-size: 1rem;
+    transform: rotate(45deg);
+}
+
+.ocg-composer-attach:hover {
+    transform: rotate(45deg) scale(1.08);
+}
+
+/* Circular Neon Send Button */
+.ocg-send-neon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--ocg-send-green);
+    border: none;
+    color: #0b1406;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(167, 244, 51, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    flex-shrink: 0;
+}
+
+.ocg-send-neon-btn svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+}
+
+.ocg-send-neon-btn:hover:not(:disabled) {
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(167, 244, 51, 0.65);
+}
+
+.ocg-send-neon-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Emoji Panel popup */
+.ocg-emoji-panel {
+    background: #141716;
+    border: 1px solid rgba(57, 255, 20, 0.25);
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.ocg-emoji-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+}
+
+.ocg-emoji-tile {
+    background: transparent;
+    border: none;
+    font-size: 1.15rem;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.ocg-emoji-tile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ocg-error {
+    color: #ef4444;
+    font-size: 0.72rem;
+    margin: 4px 14px 0;
+    text-align: center;
+}

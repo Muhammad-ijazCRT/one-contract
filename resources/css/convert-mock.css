@@ -1,0 +1,660 @@
+/* Crypto Conversion — full-width mock UI */
+
+body.dash-body--convert {
+    background: #000 !important;
+}
+
+body.dash-body--convert .dash-main,
+body.dash-body--convert .dash-content {
+    background: #000 !important;
+}
+
+body.dash-body--convert .dash-layout,
+body.dash-body--convert .dash-main,
+.dash-layout.convert-layout,
+.dash-layout.convert-layout .dash-main {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+body.dash-body--convert .dash-content,
+.dash-layout.convert-layout .dash-content {
+    padding: 0.55rem 0.85rem 5.5rem !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+}
+
+.oc-convert {
+    --occonv-gold: #efff00;
+    --occonv-green: #7dff40;
+    --occonv-line: rgba(255, 255, 255, 0.12);
+    --occonv-muted: rgba(255, 255, 255, 0.58);
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    box-sizing: border-box;
+}
+
+.occonv-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.occonv-hero h1 {
+    margin: 0;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    font-style: italic;
+    color: #fff;
+}
+
+.occonv-hero h1 em {
+    color: var(--occonv-gold);
+    font-style: italic;
+}
+
+.occonv-hero p {
+    margin: 0.4rem 0 0;
+    font-size: 0.82rem;
+    color: var(--occonv-muted);
+    max-width: 36rem;
+    line-height: 1.45;
+}
+
+.occonv-hero-art img {
+    width: clamp(72px, 10vw, 120px);
+    height: clamp(72px, 10vw, 120px);
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(125, 255, 64, 0.35));
+}
+
+.occonv-balances,
+.occonv-panel,
+.occonv-recent {
+    width: 100%;
+}
+
+.occonv-balances h2,
+.occonv-recent h2 {
+    margin: 0 0 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--occonv-muted);
+}
+
+.occonv-bal-scroll {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.55rem;
+    width: 100%;
+}
+
+.occonv-bal-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto 14px;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.75rem 0.7rem;
+    border-radius: 0.85rem;
+    border: 1px solid var(--occonv-line);
+    background: #0d0d0d;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    min-width: 0;
+}
+
+.occonv-bal-icon img {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    object-fit: cover;
+    display: block;
+}
+
+.occonv-bal-meta {
+    min-width: 0;
+}
+
+.occonv-bal-meta strong {
+    display: block;
+    font-size: 0.88rem;
+}
+
+.occonv-bal-meta small {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--occonv-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.occonv-bal-amt {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--coin-accent, var(--occonv-green));
+    white-space: nowrap;
+}
+
+.occonv-bal-card i {
+    font-size: 0.65rem;
+    color: var(--occonv-muted);
+}
+
+.occonv-panel {
+    border: 1px solid var(--occonv-line);
+    border-radius: 1rem;
+    background: #0a0a0a;
+    padding: 1rem 0.95rem;
+}
+
+.occonv-form {
+    width: 100%;
+    max-width: none;
+}
+
+.occonv-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--occonv-muted);
+}
+
+.occonv-row-head b {
+    color: #fff;
+    font-weight: 700;
+}
+
+.occonv-inputs {
+    display: grid;
+    grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+    gap: 0.55rem;
+}
+
+/* Custom coin picker — black dropdown with icons */
+.occonv-coin {
+    position: relative;
+    min-width: 0;
+}
+
+.occonv-coin-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 0.65rem;
+    border: 1px solid var(--occonv-line);
+    background: #111;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    min-height: 48px;
+    text-align: left;
+}
+
+.occonv-coin-btn img {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: #1a1a1a;
+}
+
+.occonv-coin-btn span {
+    flex: 1;
+    min-width: 0;
+}
+
+.occonv-coin-btn i {
+    font-size: 0.65rem;
+    color: var(--occonv-muted);
+    transition: transform 0.15s ease;
+}
+
+.occonv-coin.is-open .occonv-coin-btn {
+    border-color: var(--occonv-gold);
+    box-shadow: 0 0 0 1px rgba(239, 255, 0, 0.2);
+}
+
+.occonv-coin.is-open .occonv-coin-btn i {
+    transform: rotate(180deg);
+}
+
+.occonv-coin-menu {
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    right: 0;
+    min-width: 220px;
+    max-height: min(320px, 52vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #000;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+    padding: 0.35rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.occonv-coin-menu[hidden] {
+    display: none !important;
+}
+
+.occonv-coin-opt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.6rem;
+    border: 0;
+    border-radius: 0.55rem;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.12s ease;
+}
+
+.occonv-coin-opt:hover,
+.occonv-coin-opt.is-active {
+    background: #161616;
+}
+
+.occonv-coin-opt.is-active {
+    box-shadow: inset 0 0 0 1px rgba(239, 255, 0, 0.35);
+}
+
+.occonv-coin-opt img {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: #1a1a1a;
+}
+
+.occonv-coin-opt-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+.occonv-coin-opt-meta strong {
+    font-size: 0.84rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.occonv-coin-opt-meta small {
+    font-size: 0.66rem;
+    color: var(--occonv-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.occonv-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0 0.55rem;
+    border-radius: 0.65rem;
+    border: 1px solid var(--occonv-line);
+    background: #111;
+    min-height: 48px;
+}
+
+.occonv-select-wrap img {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: #1a1a1a;
+}
+
+.occonv-select-wrap select {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.88rem;
+    width: 100%;
+    padding: 0.65rem 1.1rem 0.65rem 0;
+    cursor: pointer;
+}
+
+.occonv-select-wrap select option {
+    color: #000;
+    background: #fff;
+}
+
+.occonv-select-wrap i {
+    position: absolute;
+    right: 0.55rem;
+    font-size: 0.65rem;
+    color: var(--occonv-muted);
+    pointer-events: none;
+}
+
+.occonv-amount-wrap {
+    position: relative;
+    border-radius: 0.65rem;
+    border: 1px solid var(--occonv-line);
+    background: #111;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.occonv-amount-wrap input {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 800;
+    padding: 0.55rem 3.2rem 0.55rem 0.75rem;
+    text-align: right;
+}
+
+.occonv-amount-wrap.is-readonly input {
+    color: var(--occonv-green);
+    padding-right: 0.75rem;
+}
+
+.occonv-max {
+    position: absolute;
+    right: 0.45rem;
+    border: 0;
+    border-radius: 0.35rem;
+    background: var(--occonv-gold);
+    color: #000;
+    font-size: 0.62rem;
+    font-weight: 900;
+    padding: 0.28rem 0.45rem;
+    cursor: pointer;
+}
+
+.occonv-swap-line {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.occonv-swap-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.occonv-swap {
+    position: relative;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1.5px solid var(--occonv-gold);
+    background: #000;
+    color: var(--occonv-gold);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 16px rgba(239, 255, 0, 0.2);
+}
+
+.occonv-swap svg {
+    width: 20px;
+    height: 20px;
+}
+
+.occonv-quote {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin: 0.85rem 0 0.65rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: #111;
+    border: 1px solid var(--occonv-line);
+}
+
+.occonv-fee-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.68rem;
+    color: var(--occonv-muted);
+    line-height: 1.45;
+}
+
+.occonv-quote span {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--occonv-muted);
+    margin-bottom: 0.2rem;
+}
+
+.occonv-quote strong {
+    font-size: 0.82rem;
+    color: #fff;
+    word-break: break-word;
+}
+
+.occonv-quote .is-green {
+    color: var(--occonv-green);
+}
+
+.occonv-submit {
+    width: 100%;
+    margin-top: 0.35rem;
+    border: 0;
+    border-radius: 0.75rem;
+    background: var(--occonv-gold);
+    color: #000;
+    font-weight: 900;
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    padding: 0.95rem 1rem;
+    cursor: pointer;
+}
+
+.occonv-submit:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.occonv-secure {
+    margin: 0.75rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    color: var(--occonv-muted);
+}
+
+.occonv-secure i {
+    color: var(--occonv-gold);
+}
+
+.occonv-error {
+    display: block;
+    margin-top: 0.35rem;
+    color: #ff6b6b;
+    font-size: 0.75rem;
+}
+
+.occonv-recent header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.55rem;
+}
+
+.occonv-recent header a {
+    color: var(--occonv-gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.occonv-recent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .occonv-recent-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.occonv-recent-list > li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    gap: 0.55rem;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.85rem;
+    border: 1px solid var(--occonv-line);
+    background: #0d0d0d;
+}
+
+.occonv-recent-icons {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.occonv-recent-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    object-fit: cover;
+}
+
+.occonv-recent-meta strong {
+    display: block;
+    font-size: 0.82rem;
+}
+
+.occonv-recent-meta small {
+    color: var(--occonv-muted);
+    font-size: 0.68rem;
+}
+
+.occonv-recent-amts {
+    text-align: right;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.occonv-recent-amts span {
+    display: block;
+}
+
+.occonv-recent-amts .is-green {
+    color: var(--occonv-green);
+}
+
+.occonv-status {
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 0.25rem 0.45rem;
+    border-radius: 999px;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.occonv-status.is-done {
+    background: rgba(125, 255, 64, 0.15);
+    color: var(--occonv-green);
+    border: 1px solid rgba(125, 255, 64, 0.35);
+}
+
+.occonv-recent-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--occonv-muted);
+    font-size: 0.82rem;
+    padding: 1rem;
+}
+
+@media (max-width: 720px) {
+    .occonv-bal-scroll {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+        scrollbar-width: thin;
+    }
+
+    .occonv-bal-card {
+        flex: 0 0 min(240px, 78vw);
+        width: auto;
+    }
+
+    .occonv-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .occonv-hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .occonv-hero-art {
+        align-self: center;
+    }
+
+    .occonv-quote {
+        grid-template-columns: 1fr;
+    }
+
+    .occonv-recent-list {
+        grid-template-columns: 1fr;
+    }
+
+    .occonv-recent-list > li {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .occonv-recent-amts,
+    .occonv-status {
+        grid-column: 2;
+        justify-self: start;
+        text-align: left;
+    }
+}

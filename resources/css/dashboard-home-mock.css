@@ -1,0 +1,1999 @@
+/* =========================================================
+   USER DASHBOARD v4 — client mockup (black / gold / neon)
+   ========================================================= */
+
+.dash-body--home .dash-content {
+    padding-bottom: 5.5rem;
+}
+
+.oc-home--v4 {
+    --och-gold: #efff00;
+    --och-green: #39ff14;
+    --och-line: rgba(239, 255, 0, 0.55);
+    --och-card: #050505;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+}
+
+/* ---------- Hero carousel ---------- */
+.och4-hero-frame {
+    width: 100%;
+}
+
+.och4-hero {
+    position: relative;
+    border-radius: 1rem;
+    border: 1.5px solid var(--och-gold);
+    background: #000;
+    overflow: hidden;
+    min-height: 250px;
+    box-shadow: 0 0 24px rgba(239, 255, 0, 0.12);
+    margin-bottom: 0.85rem;
+}
+
+.och4-hero-track {
+    position: relative;
+    min-height: 250px;
+}
+
+.och4-hero-slide {
+    display: none;
+    position: relative;
+    padding: 1.2rem 0.85rem 2.15rem 1.1rem;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+.och4-hero-slide.is-active {
+    display: block;
+    animation: och4Fade 0.45s ease;
+}
+
+@keyframes och4Fade {
+    from { opacity: 0.35; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+}
+
+.och4-hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 48%;
+}
+
+.och4-hero-copy h2 {
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.25rem, 4.4vw, 1.95rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 1.02;
+    text-transform: uppercase;
+    color: var(--och-gold);
+}
+
+.och4-hero-line {
+    display: block;
+}
+
+.och4-hero-line--white {
+    color: #fff;
+}
+
+.och4-hero-line--gold {
+    color: var(--och-gold);
+    text-shadow: 0 0 18px rgba(239, 255, 0, 0.35);
+}
+
+.och4-hero-accent {
+    color: #fff;
+}
+
+.och4-hero-copy p {
+    margin: 0 0 0.9rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.76rem;
+    line-height: 1.35;
+    max-width: 22ch;
+    font-weight: 500;
+}
+
+.och4-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.68rem 1.1rem;
+    border-radius: 0.45rem;
+    background: var(--och-gold);
+    color: #000;
+    font-weight: 900;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 0 22px rgba(239, 255, 0, 0.4);
+}
+
+.och4-btn:hover {
+    filter: brightness(1.05);
+    color: #000;
+}
+
+.och4-hero-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.och4-hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.22) 36%, transparent 62%);
+    pointer-events: none;
+}
+
+.och4-hero-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.och4-hero-art picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.och4-hero-dots {
+    position: absolute;
+    left: 1.1rem;
+    right: auto;
+    bottom: 0.7rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.38rem;
+    z-index: 3;
+}
+
+.och4-hero-dots button {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    border: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+}
+
+.och4-hero-dots button.is-active {
+    background: var(--och-gold);
+    box-shadow: 0 0 10px rgba(239, 255, 0, 0.55);
+}
+
+/* ---------- Games arena cards ---------- */
+.och4-games {
+    margin-bottom: 1rem;
+}
+
+.och4-games-head {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.45rem;
+    padding: 0 0.1rem;
+}
+
+.och4-games-title {
+    display: none;
+}
+
+.och4-link--view {
+    display: none;
+}
+
+.och4-hero-highlights {
+    display: none;
+}
+
+.och4-desk-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.och4-games-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+    align-items: stretch;
+}
+
+.och4-gcard {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 0;
+    border-radius: 0.9rem;
+    border: 1.5px solid rgba(239, 255, 0, 0.4);
+    background: #000;
+    box-shadow: 0 0 16px rgba(239, 255, 0, 0.08);
+    overflow: hidden;
+    min-height: 295px;
+}
+
+.och4-gcard--prediction {
+    border-color: #39ff14;
+    box-shadow: 0 0 16px rgba(57, 255, 20, 0.22);
+}
+
+.och4-gcard--azubogu {
+    border-color: #f0a020;
+    box-shadow: 0 0 16px rgba(240, 160, 32, 0.22);
+}
+
+.och4-gcard--rpsv {
+    border-color: #3aa0ff;
+    box-shadow: 0 0 16px rgba(58, 160, 255, 0.22);
+}
+
+.och4-gcard-count {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.22rem;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #fff;
+    z-index: 3;
+    pointer-events: none;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.och4-gcard-count i {
+    font-size: 0.52rem;
+    color: #fff;
+}
+
+.och4-gcard-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.och4-gcard-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
+}
+
+.och4-gcard-art picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.och4-gcard-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.55rem;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0.35rem 0.4rem 0.15rem;
+    background: transparent !important;
+    box-shadow: none;
+}
+
+.och4-gcard-copy h3 {
+    margin: 0;
+    font-size: clamp(0.58rem, 1.55vw, 0.74rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.och4-gcard-copy p {
+    margin: 0.18rem 0 0;
+    font-size: clamp(0.48rem, 1.2vw, 0.58rem);
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.och4-gcard-play {
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0.45rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: auto;
+    margin: 0;
+    padding: 0.5rem 0.35rem;
+    border-radius: 0.4rem;
+    border: 1.5px solid var(--och-gold);
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: none;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: background 0.15s ease;
+}
+
+.och4-gcard-play i {
+    font-size: 0.5rem;
+    color: var(--och-gold);
+}
+
+.och4-gcard-play:hover {
+    background: rgba(0, 0, 0, 0.58) !important;
+    color: #fff;
+}
+
+/* ---------- Cards / split ---------- */
+.och4-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.och4-card {
+    border-radius: 1.05rem;
+    border: 1.5px solid var(--och-gold);
+    background: #000;
+    padding: 1.05rem 0.95rem 1.1rem;
+    box-shadow: 0 0 24px rgba(239, 255, 0, 0.08);
+}
+
+.och4-card-head {
+    text-align: center;
+    margin-bottom: 0.95rem;
+}
+
+.och4-card-head h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    color: var(--och-gold);
+}
+
+.och4-card-head p {
+    margin: 0.45rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.och4-card-head p i {
+    flex: 1;
+    max-width: 52px;
+    height: 1px;
+    background: rgba(239, 255, 0, 0.45);
+}
+
+.och4-card-head p span {
+    white-space: nowrap;
+}
+
+.och4-outline-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.78rem 0.9rem;
+    border-radius: 0.7rem;
+    border: 1.5px solid var(--och-gold);
+    background: #000;
+    color: var(--och-gold);
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.och4-outline-btn > span {
+    flex: 1;
+    text-align: center;
+}
+
+.och4-outline-btn:hover {
+    background: rgba(239, 255, 0, 0.08);
+    color: var(--och-gold);
+}
+
+.och4-outline-ico {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* Convert */
+.och4-convert-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+.och4-convert-row label {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.35rem;
+}
+
+.och4-convert-field {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(239, 255, 0, 0.28);
+    background: #070707;
+}
+
+.och4-convert-field input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    outline: none;
+    text-align: right;
+}
+
+.och4-coin-pick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    white-space: nowrap;
+    min-width: 118px;
+}
+
+.och4-coin-pick img {
+    width: 26px;
+    height: 26px;
+}
+
+.och4-coin-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.15;
+}
+
+.och4-coin-meta b {
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.och4-coin-meta em {
+    font-style: normal;
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.och4-coin-pick i {
+    font-size: 0.58rem;
+    color: var(--och-gold);
+}
+
+.och4-balance {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.64rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.och4-balance b,
+.och4-balance span {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+}
+
+.och4-swap {
+    align-self: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1.5px solid var(--och-gold);
+    background: #000;
+    display: grid;
+    place-items: center;
+    margin: -0.05rem 0;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(239, 255, 0, 0.28);
+}
+
+.och4-swap img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ---------- Leaderboard ---------- */
+.och4-lb {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    padding: 0.15rem 0.05rem 0.25rem;
+    margin-bottom: 0.85rem;
+}
+
+.och4-lb-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 0.55rem;
+}
+
+.och4-lb-head h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.och4-lb-head h3 i {
+    color: var(--och-gold);
+    font-size: 0.85rem;
+}
+
+.och4-lb-head p {
+    margin: 0.25rem 0 0;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.och4-link {
+    color: var(--och-gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.och4-lb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.och4-lb-row {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.78rem 0.1rem;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+}
+
+.och4-lb-row:last-child {
+    border-bottom: 0;
+}
+
+.och4-lb-rank {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--och-gold);
+    color: #000;
+    font-weight: 900;
+    font-size: 0.72rem;
+}
+
+.och4-lb-rank--2 {
+    background: #c4c4d4;
+}
+
+.och4-lb-rank--3 {
+    background: #cd7f32;
+    color: #111;
+}
+
+.och4-lb-user {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+}
+
+.och4-lb-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 0;
+    flex-shrink: 0;
+    background: #111;
+}
+
+.och4-lb-user strong {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.och4-lb-row em {
+    font-style: normal;
+    font-weight: 800;
+    color: var(--och-gold);
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.och4-lb-crown {
+    color: var(--och-gold);
+    font-size: 0.72rem;
+}
+
+.och4-lb-avatar--fallback {
+    display: grid;
+    place-items: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #fff;
+    background: #1f2937;
+    text-transform: uppercase;
+}
+
+.och4-empty {
+    margin: 0;
+    padding: 0.85rem;
+    color: #94a3b8;
+    font-size: 0.82rem;
+}
+
+.och4-lb-row:nth-child(n + 4) {
+    display: none;
+}
+
+/* hide old wallet strip if present */
+.och4-wallets { display: none; }
+
+/* ---------- App bottom dock (all pages, mobile + desktop) ---------- */
+.och4-dock {
+    --och-gold: #efff00;
+    --och-green: #39ff14;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: end;
+    gap: 0.15rem;
+    padding: 0.45rem 0.85rem calc(0.55rem + env(safe-area-inset-bottom));
+    background: #000;
+    border-top: 1.5px solid var(--och-gold);
+    z-index: 60;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.55);
+}
+
+.och4-dock--count-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.och4-dock--count-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dash-body .dash-content {
+    padding-bottom: 6rem;
+}
+
+.och4-dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    color: #a8a8c8;
+    text-decoration: none;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.25rem;
+}
+
+.och4-dock-item i {
+    font-size: 1.05rem;
+}
+
+.och4-dock-item.is-active,
+.och4-dock-item:hover {
+    color: var(--och-gold);
+}
+
+.och4-dock-center {
+    width: 64px;
+    height: auto;
+    margin: -1.55rem auto 0;
+    border-radius: 999px;
+    border: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.och4-dock-center small {
+    margin-top: 0.1rem;
+}
+
+.och4-dock-center.is-active,
+.och4-dock-center:hover {
+    color: var(--och-gold);
+}
+
+.och4-dock-orb {
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    background: #0a0a0a;
+    display: grid;
+    place-items: center;
+    box-shadow: none;
+    opacity: 0.85;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.och4-dock-orb > i {
+    font-size: 1.2rem;
+    color: #efff00;
+}
+
+.och4-dock-center--search .och4-dock-orb {
+    opacity: 1;
+    background: transparent;
+    border: 2.5px solid var(--och-gold);
+    box-shadow: 0 0 16px rgba(239, 255, 0, 0.28);
+}
+
+.och4-dock-center--search .och4-dock-orb > i {
+    color: var(--och-gold);
+    font-size: 1.25rem;
+}
+
+.och4-dock-center.is-active .och4-dock-orb,
+.och4-dock-center:hover .och4-dock-orb {
+    opacity: 1;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(145deg, var(--och-gold), var(--och-green), var(--och-gold)) border-box;
+    box-shadow: 0 0 24px rgba(239, 255, 0, 0.45), 0 0 18px rgba(57, 255, 20, 0.35);
+}
+
+.och4-dock-center--search.is-active .och4-dock-orb,
+.och4-dock-center--search:hover .och4-dock-orb {
+    background: transparent;
+    border: 2.5px solid var(--och-gold);
+    box-shadow: 0 0 18px rgba(239, 255, 0, 0.4);
+}
+
+.och4-dock-center.is-active .och4-dock-orb > i,
+.och4-dock-center:hover .och4-dock-orb > i {
+    color: var(--och-gold);
+}
+
+.och4-dock-center--search.is-active .och4-dock-orb > i,
+.och4-dock-center--search:hover .och4-dock-orb > i {
+    color: var(--och-gold);
+}
+
+.och4-dock-item.is-active {
+    color: var(--och-gold);
+    position: relative;
+}
+
+.och4-dock-item.is-active small {
+    position: relative;
+}
+
+.och4-dock-item.is-active small::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -0.35rem;
+    transform: translateX(-50%);
+    width: 1.6rem;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--och-gold);
+}
+
+.och4-dock-center img,
+.och4-dock-orb img {
+    /* sizing via .oc-dock-logo */
+}
+
+@media (min-width: 1024px) {
+    .och4-dock {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        transform: none;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        grid-template-columns: repeat(4, 1fr);
+        border-radius: 0;
+        bottom: 0;
+    }
+
+    .och4-dock--count-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .dash-layout.sidebar-collapsed .och4-dock,
+    .dash-layout--no-sidebar .och4-dock {
+        left: 0;
+    }
+
+    .dash-body .dash-content,
+    .dash-body--home .dash-content {
+        padding-bottom: 6.25rem;
+    }
+}
+
+/* ---------- More sheet ---------- */
+.och4-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.och4-sheet[hidden] {
+    display: none !important;
+}
+
+.och4-sheet-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.och4-sheet-panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 420px);
+    max-height: min(86vh, 560px);
+    overflow: auto;
+    background: #0a0a0a;
+    border: 1.5px solid var(--och-gold);
+    border-radius: 1.15rem;
+    padding: 0.85rem 1rem 1.15rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(239, 255, 0, 0.12);
+}
+
+.och4-sheet-grab {
+    width: 42px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto 0.75rem;
+}
+
+.och4-sheet-panel h3 {
+    margin: 0 0 0.85rem;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-align: center;
+    font-size: 1.35rem;
+}
+
+.och4-sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.55rem;
+    margin-bottom: 0.9rem;
+}
+
+.och4-sheet-grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.7rem 0.35rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(239, 255, 0, 0.22);
+    background: #050505;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.och4-sheet-grid i {
+    color: var(--och-gold);
+    font-size: 1rem;
+}
+
+/* ---------- Responsive: lock mobile to client mock ---------- */
+.oc-home--v4 {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+.dash-body--home .dash-content {
+    padding-left: clamp(0.7rem, 2.2vw, 1.25rem);
+    padding-right: clamp(0.7rem, 2.2vw, 1.25rem);
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+}
+
+.och4-hero,
+.och4-gcard,
+.och4-lb,
+.och4-games {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.och4-games-row {
+    width: 100%;
+}
+
+/* Mobile mock (exact design frame ~390px) */
+@media (max-width: 900px) {
+    .dash-body--home .dash-content {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+        padding-bottom: calc(5.85rem + env(safe-area-inset-bottom));
+    }
+
+    .och4-hero {
+        min-height: 248px;
+        border-radius: 0.95rem;
+        border-width: 1.5px;
+        margin-bottom: 0.7rem;
+        box-shadow: 0 0 20px rgba(239, 255, 0, 0.1);
+    }
+
+    .och4-hero-track,
+    .och4-hero-slide {
+        min-height: 248px;
+    }
+
+    .och4-hero-slide {
+        padding: 1.05rem 0.7rem 2rem 0.95rem;
+    }
+
+    .och4-hero-copy {
+        max-width: 46%;
+    }
+
+    .och4-hero-copy h2 {
+        font-size: clamp(1.15rem, 5vw, 1.55rem);
+        line-height: 1.02;
+        margin-bottom: 0.4rem;
+    }
+
+    .och4-hero-copy p {
+        max-width: 20ch;
+        font-size: 0.7rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.32;
+        color: rgba(255, 255, 255, 0.95);
+    }
+
+    .och4-btn {
+        padding: 0.58rem 0.95rem;
+        font-size: 0.7rem;
+        border-radius: 0.42rem;
+        letter-spacing: 0.04em;
+    }
+
+    .och4-hero-art {
+        inset: 0;
+    }
+
+    .och4-hero-art::after {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.18) 34%, transparent 58%);
+    }
+
+    .och4-hero-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 100% 48%;
+        transform: none;
+    }
+
+    .och4-hero-dots {
+        left: 0.95rem;
+        bottom: 0.6rem;
+        gap: 0.35rem;
+    }
+
+    .och4-hero-dots button {
+        width: 6px;
+        height: 6px;
+    }
+
+    .och4-games {
+        margin-bottom: 0.95rem;
+    }
+
+    .och4-games-head {
+        margin-bottom: 0.4rem;
+        padding: 0 0.05rem;
+    }
+
+    .och4-games-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+    }
+
+    .och4-gcard {
+        min-height: 268px;
+        border-radius: 0.8rem;
+        border-width: 1.5px;
+        padding: 0;
+        display: block;
+    }
+
+    .och4-gcard--prediction {
+        border-color: #39ff14;
+        box-shadow: 0 0 12px rgba(57, 255, 20, 0.18);
+    }
+
+    .och4-gcard--azubogu {
+        border-color: #f0a020;
+        box-shadow: 0 0 12px rgba(240, 160, 32, 0.18);
+    }
+
+    .och4-gcard--rpsv {
+        border-color: #3aa0ff;
+        box-shadow: 0 0 12px rgba(58, 160, 255, 0.18);
+    }
+
+    .och4-gcard-count {
+        top: 0.4rem;
+        right: 0.4rem;
+        font-size: 0.58rem;
+        gap: 0.2rem;
+    }
+
+    .och4-gcard-art {
+        inset: 0;
+        background: transparent;
+    }
+
+    .och4-gcard-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transform: none;
+    }
+
+    .och4-gcard-copy {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2.35rem;
+        background: transparent !important;
+        padding: 0.2rem 0.3rem 0.1rem;
+    }
+
+    .och4-gcard-copy h3 {
+        font-size: clamp(0.52rem, 2.55vw, 0.68rem);
+        font-style: italic;
+        font-weight: 900;
+        color: #fff !important;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+    }
+
+    .och4-gcard-copy p {
+        display: block;
+        margin-top: 0.15rem;
+        font-size: clamp(0.44rem, 2.1vw, 0.54rem);
+        color: rgba(255, 255, 255, 0.86);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+    }
+
+    .och4-gcard-play {
+        position: absolute;
+        left: 0.28rem;
+        right: 0.28rem;
+        bottom: 0.35rem;
+        width: auto;
+        margin: 0;
+        padding: 0.48rem 0.25rem;
+        font-size: 0.64rem;
+        gap: 0.28rem;
+        border-radius: 0.38rem;
+        border: 0;
+        background: var(--och-gold) !important;
+        color: #111 !important;
+        backdrop-filter: none;
+        box-shadow: 0 4px 12px rgba(239, 255, 0, 0.28);
+    }
+
+    .och4-gcard-play i {
+        color: #111;
+        font-size: 0.48rem;
+    }
+
+    .och4-lb {
+        padding: 0.1rem 0.05rem 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .och4-lb-head {
+        margin-bottom: 0.35rem;
+        align-items: flex-end;
+    }
+
+    .och4-lb-head h3 {
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+    }
+
+    .och4-lb-head p {
+        font-size: 0.68rem;
+    }
+
+    .och4-link {
+        font-size: 0.7rem;
+    }
+
+    .och4-lb-list {
+        gap: 0;
+    }
+
+    .och4-lb-row {
+        grid-template-columns: 28px minmax(0, 1fr) auto;
+        gap: 0.55rem;
+        padding: 0.72rem 0.05rem;
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: transparent;
+    }
+
+    .och4-lb-row:last-child {
+        border-bottom: 0;
+    }
+
+    .och4-lb-rank {
+        width: 24px;
+        height: 24px;
+        font-size: 0.68rem;
+    }
+
+    .och4-lb-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .och4-lb-user strong {
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    .och4-lb-row em {
+        font-size: 0.84rem;
+        font-weight: 800;
+        color: var(--och-gold);
+    }
+
+    .och4-dock {
+        padding: 0.42rem 0.55rem calc(0.5rem + env(safe-area-inset-bottom));
+        gap: 0.1rem;
+        border-top: 1.5px solid var(--och-gold);
+        background: #000;
+    }
+
+    .och4-dock-item {
+        font-size: 0.58rem;
+        letter-spacing: 0.05em;
+        color: #a8a8c8;
+        padding: 0.2rem 0.1rem;
+        gap: 0.18rem;
+    }
+
+    .och4-dock-item i {
+        font-size: 1.05rem;
+    }
+
+    .och4-dock-item.is-active {
+        color: var(--och-gold);
+    }
+
+    .och4-dock-center {
+        margin-top: -1.45rem;
+        font-size: 0.58rem;
+        color: #a8a8c8;
+    }
+
+    .och4-dock-orb {
+        width: 56px;
+        height: 56px;
+    }
+
+    .och4-dock-center--search .och4-dock-orb {
+        border: 2.5px solid var(--och-gold);
+        box-shadow: 0 0 14px rgba(239, 255, 0, 0.28);
+        background: #000;
+    }
+
+    .och4-dock--count-5 .och4-dock-item small,
+    .och4-dock--count-5 .och4-dock-center small {
+        font-size: 0.5rem;
+    }
+
+    .och4-wallets {
+        grid-template-columns: 1fr;
+    }
+
+    .och4-sheet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .dash-body--home .dash-content {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .och4-hero {
+        min-height: 236px;
+    }
+
+    .och4-hero-track,
+    .och4-hero-slide {
+        min-height: 236px;
+    }
+
+    .och4-hero-copy h2 {
+        font-size: 1.2rem;
+    }
+
+    .och4-gcard {
+        min-height: 252px;
+    }
+
+    .och4-gcard-copy {
+        bottom: 2.2rem;
+    }
+
+    .och4-gcard-copy h3 {
+        font-size: 0.55rem;
+    }
+
+    .och4-gcard-copy p {
+        font-size: 0.46rem;
+    }
+
+    .och4-gcard-play {
+        bottom: 0.3rem;
+        left: 0.22rem;
+        right: 0.22rem;
+        font-size: 0.55rem;
+        padding: 0.38rem 0.15rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .och4-hero-copy p {
+        font-size: 0.62rem;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .och4-gcard {
+        min-height: 236px;
+    }
+
+    .och4-dock-orb {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .och4-hero,
+    .och4-hero-track,
+    .och4-hero-slide {
+        min-height: 180px;
+    }
+
+    .och4-gcard {
+        min-height: 190px;
+    }
+
+    .och4-dock-center {
+        margin-top: -0.85rem;
+    }
+
+    .och4-dock-orb {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Keep game modal styles compatible */
+.oc-home--v4 .och-game-modal-panel {
+    border-color: rgba(255, 214, 0, 0.35);
+    background: #0a0a0a;
+}
+
+.oc-home--v4 .och-game-option-img {
+    border-radius: 0.65rem;
+    object-fit: cover;
+}
+
+/* =========================================================
+   LAPTOP / DESKTOP HOME — match client mock
+   ========================================================= */
+@media (min-width: 1100px) {
+    .dash-body--home .dash-content {
+        padding: 1.15rem 1.35rem 1.5rem;
+    }
+
+    .oc-home--v4 {
+        --och-gold: #ffd400;
+        gap: 1.05rem;
+        max-width: 100%;
+    }
+
+    .och4-hero-frame {
+        --och-hero-w: 1024px;
+        --och-hero-h: 341px;
+        position: relative;
+        width: 100%;
+        flex-shrink: 0;
+        aspect-ratio: 1024 / 341;
+        container-type: inline-size;
+        overflow: hidden;
+    }
+
+    .och4-hero-frame > .och4-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--och-hero-w);
+        max-width: none;
+        height: var(--och-hero-h);
+        min-height: var(--och-hero-h);
+        max-height: var(--och-hero-h);
+        box-sizing: border-box;
+        border-radius: 1.15rem;
+        border: 1px solid rgba(255, 212, 0, 0.28);
+        box-shadow: 0 0 40px rgba(255, 212, 0, 0.12);
+        margin-bottom: 0;
+        overflow: hidden;
+        transform: scale(calc(100cqi / var(--och-hero-w)));
+        transform-origin: top left;
+    }
+
+    .och4-hero-track,
+    .och4-hero-slide {
+        min-height: var(--och-hero-h);
+        height: 100%;
+    }
+
+    @supports not (width: 1cqi) {
+        .och4-hero-frame {
+            aspect-ratio: auto;
+            height: auto;
+            overflow: visible;
+        }
+
+        .och4-hero-frame > .och4-hero {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 341px;
+            transform: none;
+        }
+    }
+
+    .och4-hero-slide {
+        padding: 1.35rem 16.5rem 1.35rem 1.7rem;
+    }
+
+    .och4-hero-copy {
+        max-width: 42%;
+    }
+
+    .och4-hero-copy h2 {
+        font-size: 2.25rem;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.45rem;
+        color: #fff !important;
+    }
+
+    .och4-hero-line--white {
+        color: #fff !important;
+    }
+
+    .och4-hero-line--gold {
+        color: #ffd400 !important;
+        text-shadow: 0 0 22px rgba(255, 212, 0, 0.45);
+    }
+
+    .och4-hero-copy p {
+        max-width: 34ch;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.88) !important;
+        margin-bottom: 1.1rem;
+    }
+
+    .och4-btn {
+        padding: 0.78rem 1.35rem;
+        border-radius: 0.55rem;
+        background: #ffd400;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        box-shadow: 0 8px 24px rgba(255, 212, 0, 0.35);
+    }
+
+    .och4-hero-art {
+        aspect-ratio: 1024 / 341;
+    }
+
+    .och4-hero-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .och4-hero-art::after {
+        background:
+            linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.28) 38%, transparent 58%),
+            linear-gradient(270deg, rgba(0, 0, 0, 0.55) 0%, transparent 28%);
+    }
+
+    .och4-hero-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 1.05rem;
+        position: absolute;
+        right: 1.35rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+    }
+
+    .och4-hero-hl {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 13.5rem;
+    }
+
+    .och4-hero-hl-ico {
+        width: 2.55rem;
+        height: 2.55rem;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: rgba(18, 18, 18, 0.72);
+        border: 1.5px solid rgba(255, 255, 255, 0.16);
+        color: #fff;
+        font-size: 0.92rem;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+        flex-shrink: 0;
+    }
+
+    .och4-hero-hl strong {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        color: #fff !important;
+        line-height: 1.15;
+    }
+
+    .och4-hero-hl small {
+        display: block;
+        margin-top: 0.12rem;
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.58) !important;
+    }
+
+    .och4-hero-dots {
+        display: none;
+    }
+
+    .och4-desk-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.82fr);
+        gap: 1.05rem;
+        align-items: start;
+    }
+
+    .och4-games {
+        margin-bottom: 0;
+        min-width: 0;
+    }
+
+    .och4-games-head {
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.7rem;
+    }
+
+    .och4-games-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #fff !important;
+        letter-spacing: 0;
+        text-transform: none;
+    }
+
+    .och4-games-title::before {
+        content: "";
+        width: 4px;
+        height: 1.05rem;
+        border-radius: 999px;
+        background: #ffd400;
+        box-shadow: 0 0 10px rgba(255, 212, 0, 0.6);
+    }
+
+    .och4-link--all {
+        display: none;
+    }
+
+    .och4-link--view {
+        display: inline-flex;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.78rem;
+        font-weight: 600;
+    }
+
+    .och4-link--view:hover {
+        color: #ffd400;
+    }
+
+    .och4-games-row {
+        gap: 0.85rem;
+    }
+
+    .och4-gcard {
+        min-height: 278px;
+        border-radius: 1.05rem;
+        border-width: 1.5px;
+    }
+
+    .och4-gcard-copy {
+        bottom: 3.15rem;
+        padding: 0.4rem 0.7rem 0.2rem;
+    }
+
+    .och4-gcard-copy h3 {
+        font-size: 0.92rem;
+        font-style: italic;
+        letter-spacing: 0.02em;
+    }
+
+    .och4-gcard-copy p {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.82) !important;
+    }
+
+    .och4-gcard-count {
+        font-size: 0.68rem;
+        top: 0.55rem;
+        right: 0.6rem;
+    }
+
+    .och4-gcard-play {
+        left: 0.7rem;
+        right: 0.7rem;
+        bottom: 0.7rem;
+        padding: 0.62rem 0.5rem;
+        border-radius: 0.5rem;
+        border: 0;
+        background: #ffd400 !important;
+        color: #111 !important;
+        font-size: 0.82rem;
+        font-weight: 800;
+        backdrop-filter: none;
+        box-shadow: 0 8px 18px rgba(255, 212, 0, 0.28);
+    }
+
+    .och4-gcard-play i {
+        color: #111;
+        font-size: 0.62rem;
+    }
+
+    .och4-gcard-play:hover {
+        background: #ffe44d !important;
+        color: #111 !important;
+    }
+
+    .och4-lb {
+        margin: 0;
+        padding: 0.95rem 1rem 0.7rem;
+        border-radius: 1.05rem;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .och4-lb-head {
+        align-items: flex-start;
+        margin-bottom: 0.35rem;
+    }
+
+    .och4-lb-head h3 {
+        font-size: 1.02rem;
+        letter-spacing: 0;
+        text-transform: none;
+        font-weight: 800;
+        color: #fff !important;
+    }
+
+    .och4-lb-head h3 i {
+        color: #ffd400;
+        font-size: 0.95rem;
+    }
+
+    .och4-lb-head p {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.48) !important;
+        margin-top: 0.15rem;
+    }
+
+    .och4-lb .och4-link {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.78rem;
+        font-weight: 600;
+    }
+
+    .och4-lb .och4-link:hover {
+        color: #ffd400;
+    }
+
+    .och4-lb-row {
+        padding: 0.62rem 0;
+        grid-template-columns: 28px minmax(0, 1fr) auto;
+        gap: 0.55rem;
+        border-bottom-color: rgba(255, 255, 255, 0.06);
+        display: grid;
+    }
+
+    .och4-lb-row:nth-child(n + 4) {
+        display: grid;
+    }
+
+    .och4-lb-rank {
+        width: 22px;
+        height: 22px;
+        font-size: 0.68rem;
+        background: #1a1a1a;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .och4-lb-rank--1 {
+        background: #ffd400;
+        color: #111;
+        border-color: #ffd400;
+    }
+
+    .och4-lb-rank--2 {
+        background: #c5c5d0;
+        color: #111;
+        border-color: #c5c5d0;
+    }
+
+    .och4-lb-rank--3 {
+        background: #cd7f32;
+        color: #111;
+        border-color: #cd7f32;
+    }
+
+    .och4-lb-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .och4-lb-user strong {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .och4-lb-row em {
+        font-size: 0.82rem;
+        color: #ffd400;
+        font-weight: 800;
+    }
+
+    .och4-lb-crown {
+        color: #ffd400;
+    }
+}
+
+@media (min-width: 1400px) {
+    .dash-body--home .dash-content {
+        padding: 1.25rem 1.6rem 1.75rem;
+    }
+
+    .och4-gcard {
+        min-height: 310px;
+    }
+}
+
+/* =========================================================
+   MOBILE HOME — exact client mock
+   ========================================================= */
+@media (max-width: 1099px) {
+    .och4-hero-highlights,
+    .och4-games-head,
+    .och4-lb-crown {
+        display: none !important;
+    }
+
+    .och4-hero {
+        min-height: 212px;
+        margin-bottom: 0.55rem;
+        border-radius: 0.95rem;
+        box-shadow: 0 0 22px rgba(239, 255, 0, 0.14);
+    }
+
+    .och4-hero-track,
+    .och4-hero-slide {
+        min-height: 212px;
+    }
+
+    .och4-hero-copy h2 {
+        color: #fff !important;
+        text-shadow: none;
+        font-size: clamp(1.22rem, 5.6vw, 1.55rem);
+        line-height: 1.02;
+    }
+
+    .och4-hero-line--white {
+        color: #fff !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+    }
+
+    .och4-hero-line--gold {
+        color: var(--och-gold) !important;
+        text-shadow: 0 0 18px rgba(239, 255, 0, 0.35);
+    }
+
+    .och4-hero-copy p {
+        color: rgba(255, 255, 255, 0.92) !important;
+        max-width: 21ch;
+        font-size: 0.68rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .och4-btn {
+        padding: 0.52rem 0.9rem;
+        border-radius: 0.4rem;
+        font-size: 0.68rem;
+    }
+
+    .och4-hero-art img {
+        object-fit: cover;
+        object-position: 100% 50%;
+        transform: none;
+    }
+
+    .och4-hero-art--games img {
+        object-position: 100% 46%;
+    }
+
+    .och4-hero-art--platform img,
+    .och4-hero-art--invest img {
+        object-position: 100% 50%;
+    }
+
+    .och4-hero-art::after {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.22) 36%, transparent 60%);
+    }
+
+    .och4-hero-dots {
+        display: flex !important;
+        left: 0.95rem;
+        bottom: 0.55rem;
+        gap: 0.32rem;
+        z-index: 4;
+    }
+
+    .och4-hero-dots button {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.32);
+    }
+
+    .och4-hero-dots button.is-active {
+        background: #fff;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+    }
+
+    .och4-dock {
+        align-items: center;
+        padding: 0.32rem 0.45rem calc(0.38rem + env(safe-area-inset-bottom));
+    }
+
+    .och4-dock-center {
+        margin-top: 0;
+        width: auto;
+        height: auto;
+    }
+
+    .och4-dock-orb {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .och4-dock-center--search .och4-dock-orb {
+        border-width: 2px;
+        box-shadow: 0 0 10px rgba(239, 255, 0, 0.22);
+    }
+
+    .och4-games {
+        margin-bottom: 0.45rem;
+    }
+
+    .och4-gcard {
+        min-height: 228px;
+    }
+
+    .och4-gcard-copy {
+        bottom: 2.05rem;
+    }
+
+    .och4-gcard-play {
+        border: 0;
+        background: var(--och-gold) !important;
+        color: #111 !important;
+        backdrop-filter: none;
+        box-shadow: 0 6px 14px rgba(239, 255, 0, 0.28);
+        bottom: 0.28rem;
+        padding: 0.42rem 0.2rem;
+        font-size: 0.6rem;
+    }
+
+    .och4-gcard-play i {
+        color: #111 !important;
+    }
+
+    .och4-gcard-play:hover {
+        background: #f5ff4d !important;
+        color: #111 !important;
+    }
+
+    .och4-lb-head h3 {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #fff !important;
+    }
+
+    .och4-lb-row {
+        padding: 0.55rem 0.05rem;
+    }
+
+    .och4-desk-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .och4-hero-art img,
+    .och4-hero-art--games img,
+    .och4-hero-art--platform img,
+    .och4-hero-art--invest img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transform: none;
+    }
+
+    .och4-gcard-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transform: none;
+    }
+}
+
+
+
